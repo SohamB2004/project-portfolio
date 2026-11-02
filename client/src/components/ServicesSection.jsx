@@ -1,0 +1,159 @@
+import React from 'react';
+import { PenTool, Code2, Globe, Video, ArrowUpRight, CheckCircle2 } from 'lucide-react';
+
+export default function ServicesSection({ onSelectService }) {
+  const services = [
+    {
+      id: "ui-ux-design",
+      title: "UI/UX Design",
+      shortSummary: "User-centric, modern and conversion-focused designs.",
+      detailedDesc: "Research, wireframes, UI design and interactive prototypes.",
+      icon: PenTool,
+      bullets: [
+        "Figma UI design & wireframes",
+        "Design systems & typography hierarchy",
+        "Interactive prototypes & user journeys",
+        "Mobile-first responsive design"
+      ],
+      turnaround: "1 - 2 Weeks"
+    },
+    {
+      id: "web-development",
+      title: "Web Design & Development",
+      shortSummary: "Responsive, fast and scalable websites with modern technologies.",
+      detailedDesc: "Modern, responsive and performance-focused websites (MERN, custom solutions, etc.).",
+      icon: Code2,
+      bullets: [
+        "Fullstack MERN (MongoDB, Express, React, Node)",
+        "Modern frontend architectures & animations",
+        "REST APIs & secure database schemas",
+        "Lighthouse 95+ speed & SEO tuning"
+      ],
+      turnaround: "2 - 3 Weeks"
+    },
+    {
+      id: "wordpress-solutions",
+      title: "WordPress Solutions",
+      shortSummary: "Custom WordPress websites, themes and plugin integration.",
+      detailedDesc: "Business websites, blogs, portfolios and custom theme/plugin setup.",
+      icon: Globe,
+      bullets: [
+        "Custom lightweight themes & blocks",
+        "WooCommerce storefronts & checkout flows",
+        "Security, speed & Core Web Vitals optimization",
+        "Effortless client content management"
+      ],
+      turnaround: "1 - 2 Weeks"
+    },
+    {
+      id: "video-editing",
+      title: "Video Editing",
+      shortSummary: "Engaging edits for brands, creators and businesses (YouTube, Reels, Ads etc.).",
+      detailedDesc: "Short-form & long-form edits, reels, YouTube videos, promos and more.",
+      icon: Video,
+      bullets: [
+        "High-retention YouTube long-form pacing",
+        "Viral Instagram Reels, TikToks & Shorts (9:16)",
+        "Commercial promos, event recaps & ads",
+        "4K color grading, sound design & motion graphics"
+      ],
+      turnaround: "2 - 5 Days"
+    }
+  ];
+
+  return (
+    <section id="services" className="relative py-20 sm:py-28 bg-[#0B0F17]">
+      {/* Background glow accents */}
+      <div className="absolute top-1/2 left-0 w-96 h-96 bg-blue-600/10 rounded-full blur-[140px] pointer-events-none -z-10" />
+
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        
+        {/* Section Header */}
+        <div className="flex flex-col md:flex-row md:items-end justify-between mb-12 sm:mb-16">
+          <div className="space-y-3">
+            {/* Pill tag */}
+            <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-blue-950/60 border border-blue-500/20 text-xs font-semibold text-blue-400">
+              <span>Our Services</span>
+            </div>
+
+            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-white tracking-tight">
+              What We Do
+            </h2>
+
+            <p className="text-base sm:text-lg text-slate-400 max-w-xl">
+              End-to-end creative and technical solutions for your brand.
+            </p>
+          </div>
+
+          <a
+            href="#portfolio"
+            className="hidden md:inline-flex items-center gap-1.5 text-sm font-semibold text-blue-400 hover:text-blue-300 transition-colors mt-4 md:mt-0 group"
+          >
+            <span>View All Services in Action</span>
+            <ArrowUpRight className="w-4 h-4 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
+          </a>
+        </div>
+
+        {/* 4 Cards Grid - Pixel-perfect match to screenshot */}
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8">
+          {services.map((service) => {
+            const Icon = service.icon;
+            return (
+              <div
+                key={service.id}
+                onClick={() => onSelectService(service)}
+                className="group relative rounded-2xl bg-[#111827]/80 hover:bg-[#131E33] border border-white/[0.08] hover:border-blue-500/40 p-7 sm:p-8 transition-all duration-300 cursor-pointer shadow-lg hover:shadow-glow-sm"
+              >
+                {/* Top Row: Icon + Arrow */}
+                <div className="flex items-start justify-between mb-6">
+                  {/* Icon Circle */}
+                  <div className="w-13 h-13 sm:w-14 sm:h-14 rounded-2xl bg-blue-600/15 border border-blue-500/30 flex items-center justify-center p-3.5 transition-transform duration-300 group-hover:scale-105 group-hover:border-blue-400">
+                    <Icon className="w-6 h-6 sm:w-7 sm:h-7 text-blue-400" />
+                  </div>
+
+                  {/* Corner Arrow */}
+                  <div className="w-9 h-9 rounded-full bg-white/[0.04] border border-white/[0.08] flex items-center justify-center text-slate-400 group-hover:text-white group-hover:bg-blue-600 group-hover:border-blue-500 transition-all duration-300">
+                    <ArrowUpRight className="w-4 h-4 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
+                  </div>
+                </div>
+
+                {/* Service Title */}
+                <h3 className="text-xl sm:text-2xl font-bold text-white mb-2.5 group-hover:text-blue-300 transition-colors">
+                  {service.title}
+                </h3>
+
+                {/* Subtitle / Description matching screenshot */}
+                <p className="text-sm sm:text-base text-slate-300 font-medium mb-2 leading-relaxed">
+                  {service.detailedDesc}
+                </p>
+                <p className="text-xs sm:text-sm text-slate-400 leading-relaxed mb-6">
+                  {service.shortSummary}
+                </p>
+
+                {/* Highlights List */}
+                <div className="pt-4 border-t border-white/[0.06] space-y-2">
+                  {service.bullets.map((bullet, idx) => (
+                    <div key={idx} className="flex items-center gap-2 text-xs sm:text-sm text-slate-300">
+                      <CheckCircle2 className="w-4 h-4 text-blue-400 shrink-0" />
+                      <span>{bullet}</span>
+                    </div>
+                  ))}
+                </div>
+
+                {/* Bottom Tag */}
+                <div className="mt-6 flex items-center justify-between text-xs font-semibold text-slate-400 pt-3 border-t border-white/[0.04]">
+                  <span>Turnaround: <strong className="text-blue-400">{service.turnaround}</strong></span>
+                  <span className="text-blue-400 group-hover:underline flex items-center gap-1">
+                    Request Quote ↗
+                  </span>
+                </div>
+              </div>
+            );
+          })}
+        </div>
+
+      </div>
+    </section>
+  );
+}
+

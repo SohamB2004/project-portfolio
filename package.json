@@ -1,0 +1,30 @@
+{
+  "name": "genui-freelance-portfolio",
+  "version": "1.0.0",
+  "description": "Fullstack MERN Portfolio for UI/UX Design, Web Design & WordPress Development, and Video Editing Freelance Business",
+  "type": "module",
+  "scripts": {
+    "dev": "concurrently \"npm run dev:server\" \"npm run dev:client\"",
+    "dev:server": "cd server && node src/index.js",
+    "dev:client": "cd client && npm run dev",
+    "start": "cd server && node src/index.js",
+    "build": "cd client && npm install && npm run build"
+  },
+  "dependencies": {
+    "cors": "^2.8.5",
+    "dotenv": "^16.4.7",
+    "express": "^4.21.2",
+    "mongoose": "^8.9.5"
+  },
+  "keywords": [
+    "mern",
+    "portfolio",
+    "freelance",
+    "ui-ux",
+    "wordpress",
+    "video-editing",
+    "agency"
+  ],
+  "author": "GenUI Studio",
+  "license": "ISC"
+}
