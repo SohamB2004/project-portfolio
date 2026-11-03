@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Mail, Phone, MapPin, Youtube, Instagram, Linkedin, Send, ArrowUpRight, CheckCircle2, AlertCircle, Loader2, Sparkles } from 'lucide-react';
+import { Mail, MapPin, Youtube, Instagram, Linkedin, Send, ArrowUpRight, CheckCircle2, AlertCircle, Loader2, Sparkles } from 'lucide-react';
 import { playPop, playChime } from '../utils/audioFx';
 import { fireConfetti } from '../utils/confetti';
 import { getApiUrl } from '../utils/api';
@@ -120,26 +120,14 @@ export default function ContactSection() {
                 
                 {/* Email */}
                 <a
-                  href="mailto:contact@genuistudio.in"
+                  href="mailto:business.randamiya@gmail.com"
                   onClick={playPop}
                   className="flex items-center gap-3.5 text-sm text-slate-300 hover:text-white transition-colors group"
                 >
                   <div className="w-10 h-10 rounded-xl bg-[#111827] border border-white/[0.08] flex items-center justify-center text-blue-400 group-hover:bg-blue-600 group-hover:text-white transition-all group-hover:scale-105">
                     <Mail className="w-4 h-4" />
                   </div>
-                  <span className="font-medium">contact@genuistudio.in</span>
-                </a>
-
-                {/* Phone */}
-                <a
-                  href="tel:+919876543210"
-                  onClick={playPop}
-                  className="flex items-center gap-3.5 text-sm text-slate-300 hover:text-white transition-colors group"
-                >
-                  <div className="w-10 h-10 rounded-xl bg-[#111827] border border-white/[0.08] flex items-center justify-center text-blue-400 group-hover:bg-blue-600 group-hover:text-white transition-all group-hover:scale-105">
-                    <Phone className="w-4 h-4" />
-                  </div>
-                  <span className="font-medium">+91 98765 43210</span>
+                  <span className="font-medium">business.randamiya@gmail.com</span>
                 </a>
 
                 {/* Location */}
