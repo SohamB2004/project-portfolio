@@ -39,14 +39,24 @@ export default function VideoModal({ project, onClose }) {
         </div>
 
         {/* Video Player (Responsive 16:9 Iframe) */}
-        <div className="relative aspect-video w-full bg-black">
-          <iframe
-            src={`https://www.youtube.com/embed/${project.youtubeId}?autoplay=1&rel=0&modestbranding=1`}
-            title={project.title}
-            className="w-full h-full border-0"
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-            allowFullScreen
-          />
+        <div className="relative aspect-video w-full bg-black flex items-center justify-center">
+          {project.videoUrl ? (
+            <video
+              src={project.videoUrl}
+              controls
+              autoPlay
+              playsInline
+              className="w-full h-full object-contain"
+            />
+          ) : (
+            <iframe
+              src={`https://www.youtube.com/embed/${project.youtubeId}?autoplay=1&rel=0&modestbranding=1`}
+              title={project.title}
+              className="w-full h-full border-0"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+              allowFullScreen
+            />
+          )}
         </div>
 
         {/* Meta & Details */}

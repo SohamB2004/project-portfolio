@@ -74,6 +74,25 @@ export const servicesData = [
     pricingStartsAt: "$150",
     deliverables: "4K Master Exports, Social Cuts, Thumbnail Designs, Audio Stems",
     estimatedTurnaround: "2 - 5 Days"
+  },
+  {
+    id: "3d-animation-cgi",
+    number: "05",
+    title: "3D Animation & CGI",
+    shortDescription: "Industry-based, factory-based, and photorealistic product 3D animations.",
+    fullDescription: "From 360° luxury turntable product commercials to grand architectural walkthroughs and industrial factory workflow simulations. We engineer ray-traced physical caustics, cinematic camera choreography, and photorealistic PBR materials.",
+    icon: "Box",
+    gradient: "from-blue-600/25 to-purple-600/15",
+    features: [
+      "Product-Based 3D (Jewelry, Electronics, Furniture)",
+      "Industry-Based 3D (Architectural, Heritage & Hospitality Walkthroughs)",
+      "Factory & Facility 3D (Assembly, Machinery & Commercial Logistics)",
+      "Ray-Traced Caustics, PBR Textures & Volumetric Lighting",
+      "Seamless 60fps 360° Turntable & Commercial Video Renders"
+    ],
+    pricingStartsAt: "$450",
+    deliverables: "4K Master Video Loops, High-Res CGI Render Frames, Blender/Source Assets",
+    estimatedTurnaround: "1 - 3 Weeks"
   }
 ];
 

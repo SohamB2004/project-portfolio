@@ -25,4 +25,6 @@ Thumbs.db
 
 # Inquiries backup file (created locally)
 inquiries.json
+# Raw source animation folder (assets are copied into client/public/animation)
+/animation/
 

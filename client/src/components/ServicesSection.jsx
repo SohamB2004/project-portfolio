@@ -1,8 +1,24 @@
 import React from 'react';
-import { PenTool, Code2, Globe, Video, ArrowUpRight, CheckCircle2 } from 'lucide-react';
+import { Box, PenTool, Code2, Globe, Video, ArrowUpRight, CheckCircle2 } from 'lucide-react';
+import { playPop, playHover } from '../utils/audioFx';
 
 export default function ServicesSection({ onSelectService }) {
   const services = [
+    {
+      id: "3d-animation",
+      title: "3D Animation & CGI",
+      shortSummary: "Industry-based, factory-based & photorealistic product animations.",
+      detailedDesc: "Photorealistic 3D visualization, plant/factory layout walkthroughs, and commercial product animations.",
+      icon: Box,
+      badge: "New Service",
+      bullets: [
+        "Product 3D: Luxury jewelry, tech gadgets & 360° commercial turntable loops",
+        "Industry 3D: High-end architectural spaces, heritage pavilions & spatial design",
+        "Factory 3D: Manufacturing layouts, process pipelines & mechanical mechanisms",
+        "Broadcast 4K 60FPS ray-traced rendering, caustics & PBR materials"
+      ],
+      turnaround: "1 - 3 Weeks"
+    },
     {
       id: "ui-ux-design",
       title: "UI/UX Design",
@@ -71,7 +87,6 @@ export default function ServicesSection({ onSelectService }) {
         {/* Section Header */}
         <div className="flex flex-col md:flex-row md:items-end justify-between mb-12 sm:mb-16">
           <div className="space-y-3">
-            {/* Pill tag */}
             <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-blue-950/60 border border-blue-500/20 text-xs font-semibold text-blue-400">
               <span>Our Services</span>
             </div>
@@ -81,63 +96,79 @@ export default function ServicesSection({ onSelectService }) {
             </h2>
 
             <p className="text-base sm:text-lg text-slate-400 max-w-xl">
-              End-to-end creative and technical solutions for your brand.
+              End-to-end creative, 3D visualization and technical solutions for your brand.
             </p>
           </div>
 
           <a
-            href="#portfolio"
+            href="#animation"
+            onClick={playPop}
             className="hidden md:inline-flex items-center gap-1.5 text-sm font-semibold text-blue-400 hover:text-blue-300 transition-colors mt-4 md:mt-0 group"
           >
-            <span>View All Services in Action</span>
+            <span>Explore 3D Animation Studio</span>
             <ArrowUpRight className="w-4 h-4 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
           </a>
         </div>
 
-        {/* 4 Cards Grid - Pixel-perfect match to screenshot */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8">
-          {services.map((service) => {
+        {/* Services Grid */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
+          {services.map((service, index) => {
             const Icon = service.icon;
+            const isFeatured = service.id === '3d-animation';
             return (
               <div
                 key={service.id}
-                onClick={() => onSelectService(service)}
-                className="group relative rounded-2xl bg-[#111827]/80 hover:bg-[#131E33] border border-white/[0.08] hover:border-blue-500/40 p-7 sm:p-8 transition-all duration-300 cursor-pointer shadow-lg hover:shadow-glow-sm"
+                onMouseEnter={playHover}
+                onClick={() => {
+                  playPop();
+                  onSelectService(service);
+                }}
+                className={`group relative rounded-2xl bg-[#111827]/80 hover:bg-[#131E33] border p-7 sm:p-8 transition-all duration-300 cursor-pointer shadow-lg hover:shadow-glow-sm flex flex-col justify-between ${
+                  isFeatured
+                    ? 'border-blue-500/40 md:col-span-2 lg:col-span-2 bg-gradient-to-br from-[#111827] via-[#131F38] to-[#111827]'
+                    : 'border-white/[0.08] hover:border-blue-500/40'
+                }`}
               >
-                {/* Top Row: Icon + Arrow */}
-                <div className="flex items-start justify-between mb-6">
-                  {/* Icon Circle */}
-                  <div className="w-13 h-13 sm:w-14 sm:h-14 rounded-2xl bg-blue-600/15 border border-blue-500/30 flex items-center justify-center p-3.5 transition-transform duration-300 group-hover:scale-105 group-hover:border-blue-400">
-                    <Icon className="w-6 h-6 sm:w-7 sm:h-7 text-blue-400" />
-                  </div>
-
-                  {/* Corner Arrow */}
-                  <div className="w-9 h-9 rounded-full bg-white/[0.04] border border-white/[0.08] flex items-center justify-center text-slate-400 group-hover:text-white group-hover:bg-blue-600 group-hover:border-blue-500 transition-all duration-300">
-                    <ArrowUpRight className="w-4 h-4 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
-                  </div>
-                </div>
-
-                {/* Service Title */}
-                <h3 className="text-xl sm:text-2xl font-bold text-white mb-2.5 group-hover:text-blue-300 transition-colors">
-                  {service.title}
-                </h3>
-
-                {/* Subtitle / Description matching screenshot */}
-                <p className="text-sm sm:text-base text-slate-300 font-medium mb-2 leading-relaxed">
-                  {service.detailedDesc}
-                </p>
-                <p className="text-xs sm:text-sm text-slate-400 leading-relaxed mb-6">
-                  {service.shortSummary}
-                </p>
-
-                {/* Highlights List */}
-                <div className="pt-4 border-t border-white/[0.06] space-y-2">
-                  {service.bullets.map((bullet, idx) => (
-                    <div key={idx} className="flex items-center gap-2 text-xs sm:text-sm text-slate-300">
-                      <CheckCircle2 className="w-4 h-4 text-blue-400 shrink-0" />
-                      <span>{bullet}</span>
+                <div>
+                  {/* Top Row: Icon + Badge + Arrow */}
+                  <div className="flex items-start justify-between mb-6">
+                    <div className="flex items-center gap-3">
+                      <div className="w-13 h-13 sm:w-14 sm:h-14 rounded-2xl bg-blue-600/15 border border-blue-500/30 flex items-center justify-center p-3.5 transition-transform duration-300 group-hover:scale-105 group-hover:border-blue-400">
+                        <Icon className="w-6 h-6 sm:w-7 sm:h-7 text-blue-400" />
+                      </div>
+                      {service.badge && (
+                        <span className="px-3 py-1 rounded-full bg-blue-600/20 border border-blue-500/40 text-blue-400 text-[11px] font-bold">
+                          {service.badge}
+                        </span>
+                      )}
                     </div>
-                  ))}
+
+                    <div className="w-9 h-9 rounded-full bg-white/[0.04] border border-white/[0.08] flex items-center justify-center text-slate-400 group-hover:text-white group-hover:bg-blue-600 group-hover:border-blue-500 transition-all duration-300">
+                      <ArrowUpRight className="w-4 h-4 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
+                    </div>
+                  </div>
+
+                  {/* Title */}
+                  <h3 className="text-xl sm:text-2xl font-bold text-white mb-2 group-hover:text-blue-300 transition-colors">
+                    {service.title}
+                  </h3>
+
+                  <p className="text-sm sm:text-base text-slate-300 font-medium mb-2 leading-relaxed">
+                    {service.detailedDesc}
+                  </p>
+                  <p className="text-xs sm:text-sm text-slate-400 leading-relaxed mb-6">
+                    {service.shortSummary}
+                  </p>
+
+                  {/* Highlights */}
+                  <div className="pt-4 border-t border-white/[0.06] space-y-2">
+                    {service.bullets.map((bullet, idx) => (
+                      <div key={idx} className="flex items-center gap-2 text-xs sm:text-sm text-slate-300">
+                        <CheckCircle2 className="w-4 h-4 text-blue-400 shrink-0" />
+                        <span>{bullet}</span>
+                      </div>
+                    ))}
+                  </div>
                 </div>
 
                 {/* Bottom Tag */}
@@ -156,4 +187,3 @@ export default function ServicesSection({ onSelectService }) {
     </section>
   );
 }
-

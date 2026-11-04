@@ -10,7 +10,7 @@ export default function PortfolioSection({
 }) {
   const [activeCategory, setActiveCategory] = useState('All');
 
-  const categories = ['All', 'Websites', 'UI/UX', 'WordPress', 'Video Edits'];
+  const categories = ['All', 'Websites', 'UI/UX', 'WordPress', 'Video Edits', '3D Animation'];
 
   const filteredProjects = activeCategory === 'All'
     ? projects
@@ -71,7 +71,7 @@ export default function PortfolioSection({
         {/* Projects Grid */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-7">
           {filteredProjects.map((project, index) => {
-            const isVideo = project.category === 'Video Edits' || Boolean(project.youtubeId);
+            const isVideo = project.category === 'Video Edits' || Boolean(project.youtubeId) || Boolean(project.videoUrl);
 
             return (
               <div
@@ -102,6 +102,11 @@ export default function PortfolioSection({
                       <span className="px-2.5 py-1 rounded-full bg-emerald-500/90 text-white text-[11px] font-semibold backdrop-blur-md flex items-center gap-1 shadow-md">
                         <span className="w-1.5 h-1.5 rounded-full bg-white animate-pulse" />
                         Live Website
+                      </span>
+                    ) : project.videoUrl ? (
+                      <span className="px-2.5 py-1 rounded-full bg-cyan-600/90 text-white text-[11px] font-semibold backdrop-blur-md flex items-center gap-1 shadow-md">
+                        <Play className="w-3 h-3 fill-white" />
+                        3D Reel
                       </span>
                     ) : isVideo ? (
                       <span className="px-2.5 py-1 rounded-full bg-red-600/90 text-white text-[11px] font-semibold backdrop-blur-md flex items-center gap-1 shadow-md">

@@ -290,6 +290,7 @@ export default function ContactSection() {
                       <option value="Web Design & Development">Web Design & Development (MERN)</option>
                       <option value="WordPress Solutions">WordPress Solutions</option>
                       <option value="Video Editing">Video Editing (YouTube, Reels, Promo)</option>
+                      <option value="3D Animation (Industry, Factory & Product)">3D Animation (Industry, Factory & Product)</option>
                       <option value="Full Digital Package">Full Digital Package (Design + Web + Video)</option>
                       <option value="Other">Other / Custom Inquiry</option>
                     </select>

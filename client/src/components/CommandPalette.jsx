@@ -67,6 +67,16 @@ export default function CommandPalette({
       }
     },
     {
+      id: 'animation',
+      title: 'Explore 3D Animation & CGI (Industry, Factory, Product)',
+      category: 'Navigation',
+      icon: ArrowRight,
+      action: () => {
+        onClose();
+        window.location.hash = '#animation';
+      }
+    },
+    {
       id: 'portfolio',
       title: 'Browse Full Portfolio (Web & Video)',
       category: 'Navigation',

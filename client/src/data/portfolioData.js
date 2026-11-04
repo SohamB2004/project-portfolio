@@ -1,4 +1,222 @@
+export const animationProjects = [
+  {
+    id: "3d-jena-ring",
+    title: "Jena Diamond Ring – 360° Luxury Product Animation",
+    category: "3D Animation",
+    subCategory: "Product Animation",
+    categoryTag: "3D Product Animation",
+    tags: ["3D Product Animation", "Jewelry Commercial", "Ray-Traced Caustics", "360° Turntable"],
+    description: "Photorealistic 360-degree commercial animation of the luxury Jena Diamond Ring, highlighting precision pavé setting, precious metal reflections, and refractive gemstone brilliance.",
+    longDescription: "Engineered for luxury jewelry retail, e-commerce ads, and trade presentations. This animation utilizes physical-based rendering (PBR), spectral dispersion for true diamond fire, micro-camera depth of field, and silky smooth 360-degree rotation that reveals every facet of the artisan band.",
+    client: "Jena Fine Jewelry",
+    year: "2024",
+    isVideo: true,
+    videoUrl: "/animation/jena-ring-animation.mp4",
+    image: "/animation/photo_2026-11-05_00-28-05.jpg",
+    featured: true,
+    engine: "Blender Cycles / Ray-Traced OptiX",
+    highlights: [
+      "Physically accurate light dispersion and diamond caustics",
+      "Studio 3-point softbox lighting with specular edge glints",
+      "Precision procedural gold and platinum metal shaders",
+      "Seamless 60fps 360-degree turntable loop"
+    ]
+  },
+  {
+    id: "3d-royal-banquet-hall",
+    title: "Royal Colonnade Banquet Hall – Architectural 3D Walkthrough",
+    category: "3D Animation",
+    subCategory: "Industry Animation",
+    categoryTag: "Industry & Architectural 3D",
+    tags: ["Architectural Walkthrough", "Grand Scale", "Volumetric Lighting", "Heritage Interior"],
+    description: "Immersive spatial visualization of a grand royal banquet hall with ornate mezzanine colonnades, gilded capitals, and multi-tier crystal chandeliers.",
+    longDescription: "An expansive spatial visualization crafted for hospitality developers and interior architects. Demonstrates scale, architectural symmetry, gilded classical balustrades, and multi-light-source illumination across polished marble flooring.",
+    client: "Grand Heritage Hospitality",
+    year: "2024",
+    image: "/animation/photo_2026-11-05_00-28-27.jpg",
+    featured: true,
+    engine: "Photorealistic Ray-Tracing / PBR",
+    highlights: [
+      "Multi-point chandelier caustics and warm indirect bounce lighting",
+      "Intricate classical colonnade and balustrade modeling",
+      "High-gloss marble floor reflection and fresnel falloff",
+      "Architectural camera perspective with correct focal vanishing"
+    ]
+  },
+  {
+    id: "3d-cultural-dining-pavilion",
+    title: "Cultural Heritage Pavilion – Themed Hospitality 3D",
+    category: "3D Animation",
+    subCategory: "Industry Animation",
+    categoryTag: "Industry & Cultural Space",
+    tags: ["Themed Architecture", "Mural Integration", "Stained Glass", "Spatial Design"],
+    description: "Architectural visualization of an expansive cultural dining hall integrating stained-glass archways, artistic ceiling reliefs, and illuminated poetry murals.",
+    longDescription: "A themed cultural restaurant interior celebrating Bengali heritage. Features radiant stained-glass portals, custom ceiling rosettes, poetic wall art, and ambient sconce illumination balanced for commercial seating ergonomics.",
+    client: "Heritage Dining Collective",
+    year: "2024",
+    image: "/animation/photo_2026-11-05_00-29-41.jpg",
+    featured: true,
+    engine: "Ray-Traced Ambient GI",
+    highlights: [
+      "Stained-glass colored light transmission onto dining tablecloths",
+      "High-relief ornamental ceiling fresco mapping",
+      "Commercial hospitality table clearance and seating flow",
+      "Atmospheric warmth calibrated for hospitality branding"
+    ]
+  },
+  {
+    id: "3d-bar-glassware-layout",
+    title: "Commercial Bar Infrastructure – Hospitality Facility 3D",
+    category: "3D Animation",
+    subCategory: "Factory & Process",
+    categoryTag: "Factory & Facility 3D",
+    tags: ["Commercial Facility", "Glass Refraction", "Woodwork Joinery", "Ergonomic Layout"],
+    description: "Detailed commercial bar infrastructure layout showing multi-tier suspended stemware racks, frosted glass doors, and modular hospitality cabinetry.",
+    longDescription: "Engineered to demonstrate back-of-house hospitality efficiency and front-of-house aesthetic allure. Focuses on glass refraction accuracy, wood joinery tolerances, and illuminated shelving for beverage service.",
+    client: "Metro Lounge Architecture",
+    year: "2024",
+    image: "/animation/photo_2026-11-05_00-29-21.jpg",
+    featured: false,
+    engine: "Cycles Glass BSDF & PBR",
+    highlights: [
+      "Sub-surface scattering and complex liquid/glass interface",
+      "Frosted glass diffusion with backlit tree motif",
+      "Commercial shelving weight and structural clearance analysis",
+      "Photorealistic wood veneer grain alignment"
+    ]
+  },
+  {
+    id: "3d-chevron-credenza",
+    title: "Artisan Chevron Credenza – Luxury Furniture CGI",
+    category: "3D Animation",
+    subCategory: "Product Animation",
+    categoryTag: "Product 3D CGI",
+    tags: ["Furniture CGI", "PBR Wood Textures", "Studio Lighting", "Product Commercial"],
+    description: "High-detail studio product render showcasing fine chevron woodwork, brass fixtures, and tactile wood grain textures for high-end furniture retail.",
+    longDescription: "Created for direct-to-consumer luxury furniture branding. Highlights fine chevron paneling, natural timber variation, brushed brass hardware, and studio softbox illumination tailored for e-commerce conversion.",
+    client: "Moda Living Concepts",
+    year: "2024",
+    image: "/animation/photo_2026-11-05_00-28-05.jpg",
+    featured: false,
+    engine: "High-Resolution PBR Studio",
+    highlights: [
+      "Tactile timber displacement and natural specularity",
+      "Soft diffuse illumination with studio bounce cards",
+      "Accurate real-world millimeter scale joinery",
+      "Catalog-ready clean background framing"
+    ]
+  },
+  {
+    id: "3d-holographic-projection",
+    title: "Holographic Wall Projection – Advanced CGI Display",
+    category: "3D Animation",
+    subCategory: "Industry Animation",
+    categoryTag: "Advanced CGI Simulation",
+    tags: ["Holographic CGI", "Particle Effects", "Exhibition Concept", "Visual Illusion"],
+    description: "Dynamic volumetric particle hologram simulation on reflective dark acrylic panels, designed for next-gen interactive exhibitions and smart spaces.",
+    longDescription: "Exploring the boundary between physical interior design and digital illusion. Uses anisotropic particle point-clouds, specular depth scattering, and motion blur to generate an evocative optical presence on dark architectural panels.",
+    client: "Future Spaces Lab",
+    year: "2024",
+    image: "/animation/photo_2026-11-05_00-29-50.jpg",
+    featured: false,
+    engine: "Volumetric Particle Simulation",
+    highlights: [
+      "Point-cloud particle dispersion algorithm",
+      "Reflective dark acrylic surface interaction",
+      "Dynamic camera angle parallax demonstration",
+      "Experiential museum and gallery installation concept"
+    ]
+  },
+  {
+    id: "3d-rocking-chair-art",
+    title: "Vintage Rocking Chair & Literary Nook – Artistic 3D",
+    category: "3D Animation",
+    subCategory: "Product Animation",
+    categoryTag: "Product & Artistic CGI",
+    tags: ["Artistic CGI", "Cloth Simulation", "Wood Turning", "Atmospheric Lighting"],
+    description: "Conceptual product art featuring a crafted wooden rocking chair with crimson velvet upholstery perched atop antiquarian literature manuscripts.",
+    longDescription: "A fusion of product modeling and artistic storytelling. Demonstrates lathe-turned spindle precision, soft velvet cloth physics, layered paper textures, and warm directional mood lighting.",
+    client: "Artisan Heritage Studio",
+    year: "2024",
+    image: "/animation/photo_2026-11-05_00-29-37.jpg",
+    featured: false,
+    engine: "PBR Material Physics",
+    highlights: [
+      "Accurate spindle and rocker curvature physics",
+      "Velvet micro-fiber sheen and cushion compression",
+      "Multi-page paper scattering and organic edge curling",
+      "Warm chiaroscuro lighting composition"
+    ]
+  },
+  {
+    id: "3d-coastal-living-space",
+    title: "Modern Living Space & Balcony – Daylight Simulation",
+    category: "3D Animation",
+    subCategory: "Industry Animation",
+    categoryTag: "Architectural Walkthrough",
+    tags: ["Daylight Simulation", "Interior Architecture", "Balcony Framing", "Modern Living"],
+    description: "Full-space interior walkthrough demonstrating natural daylight transitions, custom storage cabinetry, and panoramic outdoor balcony framing.",
+    longDescription: "Architectural real estate visualization simulating natural sun orientation, custom built-in entertainment units, furniture layouts, and indoor-outdoor spatial transitions.",
+    client: "Coastal Horizon Properties",
+    year: "2024",
+    image: "/animation/photo_2026-11-05_00-28-16.jpg",
+    featured: false,
+    engine: "Physical Sun & Sky GI",
+    highlights: [
+      "Accurate sun position and atmospheric haze simulation",
+      "Custom casework and geometric wall frame detailing",
+      "Multi-room spatial flow and circulation clearance",
+      "Color-accurate interior paint finish representation"
+    ]
+  },
+  {
+    id: "3d-ceiling-ornamentation",
+    title: "Ornate Ceiling Rosette & Crystal Chandelier – Detail CGI",
+    category: "3D Animation",
+    subCategory: "Factory & Process",
+    categoryTag: "High-Poly Architectural CGI",
+    tags: ["High-Poly Modeling", "Ornamental Fresco", "Crystal Caustics", "Ceiling Medallion"],
+    description: "Intricate ceiling rosette and ornamental fresco model mapped with photorealistic brass fixtures and crystal pendant caustics.",
+    longDescription: "Detailed study of complex architectural plaster relief work, decorative ceiling fresco painting, and multifaceted crystal refraction under warm electrical lighting.",
+    client: "Heritage Restoration Architects",
+    year: "2024",
+    image: "/animation/photo_2026-11-05_00-29-46.jpg",
+    featured: false,
+    engine: "High-Poly Subdivision Surfaces",
+    highlights: [
+      "Subdivision surface modeling of traditional plaster motifs",
+      "Multifaceted glass crystal dispersion and rainbow flare",
+      "Acoustic texture roughness mapping",
+      "Precision brass fixture joint and chain modeling"
+    ]
+  },
+  {
+    id: "3d-spring-festival-environment",
+    title: "Spring Festival Hospitality Wall – Environment Simulation",
+    category: "3D Animation",
+    subCategory: "Industry Animation",
+    categoryTag: "Environmental Simulation",
+    tags: ["Color Atmosphere", "Environmental Simulation", "Hospitality CGI", "Typography"],
+    description: "High-energy hospitality interior visualizing festive color cloud murals, decorative wall sconces, and dining ergonomics.",
+    longDescription: "Showcases how atmospheric color powder effects, typographic wall installations, and ambient wall washers combine to create vibrant experiential dining environments.",
+    client: "Colors Cultural Bistro",
+    year: "2024",
+    image: "/animation/photo_2026-11-05_00-29-54.jpg",
+    featured: false,
+    engine: "Volumetric Color Grading",
+    highlights: [
+      "Volumetric cloud color blending across architectural surfaces",
+      "Specular wall illumination from dual brass sconces",
+      "Integrated cultural photography and typographic layout",
+      "Commercial dining comfort and sightline analysis"
+    ]
+  }
+];
+
 export const fallbackProjects = [
+  // --- 3D ANIMATION HERO SHOWCASE ---
+  ...animationProjects,
+
   // --- REAL WEBSITES FROM USER ---
   {
     id: "floow2",
@@ -199,7 +417,7 @@ export const fallbackProjects = [
     category: "Websites",
     categoryTag: "Web Design + Development",
     tags: ["UI/UX Design", "Responsive MERN Website", "Booking & Inquiry System", "SEO-Friendly & Fast"],
-    description: "A modern, responsive travel website to showcase destinations, packages and bookings with a clean, immersive UL",
+    description: "A modern, responsive travel website to showcase destinations, packages and bookings with a clean, immersive UI",
     longDescription: "A modern, responsive travel website designed to showcase destinations, packages and bookings with a clean, immersive UI. Engineered with MERN architecture for fast search, dynamic filters, and real-time reservation inquiries.",
     client: "Trekore Himalayan Travel",
     year: "2024",
@@ -277,8 +495,25 @@ export const fallbackProjects = [
 
 export const fallbackServices = [
   {
-    id: "ui-ux-design",
+    id: "3d-animation",
     number: "01",
+    title: "3D Animation & CGI",
+    shortDescription: "Industry-based, factory-based & photorealistic product animations.",
+    fullDescription: "From 360° luxury product commercials to complex industrial factory pipeline simulations and architectural spatial walkthroughs.",
+    icon: "Box",
+    features: [
+      "Product-Based 3D: Luxury jewelry, tech gadgets, packaging & 360° turntable animations",
+      "Factory-Based 3D: Plant layouts, mechanical pipeline flows & industrial machinery walkthroughs",
+      "Industry-Based 3D: High-end architectural spaces, heritage pavilions & commercial interiors",
+      "Photorealistic Ray-Tracing, PBR materials, caustic refractions & physics simulations",
+      "Broadcast 4K 60FPS exports ready for TV commercials, web heroes, and social campaigns"
+    ],
+    pricingStartsAt: "$500",
+    turnaround: "1 - 3 Weeks"
+  },
+  {
+    id: "ui-ux-design",
+    number: "02",
     title: "UI/UX Design",
     shortDescription: "User-centric, modern and conversion-focused designs.",
     fullDescription: "Research, wireframes, UI design and interactive prototypes.",
@@ -295,7 +530,7 @@ export const fallbackServices = [
   },
   {
     id: "web-development",
-    number: "02",
+    number: "03",
     title: "Web Design & Development",
     shortDescription: "Responsive, fast and scalable websites with modern technologies.",
     fullDescription: "Modern, responsive and performance-focused websites (MERN, custom solutions, etc.).",
@@ -312,7 +547,7 @@ export const fallbackServices = [
   },
   {
     id: "wordpress-solutions",
-    number: "03",
+    number: "04",
     title: "WordPress Solutions",
     shortDescription: "Custom WordPress websites, themes and plugin integration.",
     fullDescription: "Business websites, blogs, portfolios and custom theme/plugin setup.",
@@ -329,7 +564,7 @@ export const fallbackServices = [
   },
   {
     id: "video-editing",
-    number: "04",
+    number: "05",
     title: "Video Editing",
     shortDescription: "Engaging edits for brands, creators and businesses (YouTube, Reels, Ads etc.).",
     fullDescription: "Short-form & long-form edits, reels, YouTube videos, promos and more.",
@@ -347,8 +582,8 @@ export const fallbackServices = [
 ];
 
 export const fallbackStats = [
-  { label: "Projects Delivered", value: "20+", icon: "Briefcase" },
-  { label: "Happy Clients", value: "10+", icon: "Users" },
+  { label: "Projects Delivered", value: "30+", icon: "Briefcase" },
+  { label: "Happy Clients", value: "15+", icon: "Users" },
   { label: "Client Rating", value: "4.9/5", icon: "Star" },
   { label: "On-Time Delivery", value: "100%", icon: "BarChart3" }
 ];
@@ -361,7 +596,7 @@ export const fallbackValues = [
   },
   {
     title: "Quality Execution",
-    description: "Clean code, pixel-perfect design hierarchy, and meticulous video keyframing on every project.",
+    description: "Clean code, pixel-perfect design hierarchy, photorealistic 3D renders, and meticulous video keyframing.",
     icon: "Award"
   },
   {
@@ -375,4 +610,3 @@ export const fallbackValues = [
     icon: "ShieldCheck"
   }
 ];
-
