@@ -1,10 +1,8 @@
-import React, { useState } from 'react';
-import { Users, Award, Zap, ShieldCheck, HeartHandshake, Sparkles, CheckCircle, Code2, PenTool, Video, Database } from 'lucide-react';
-import { playPop, playHover } from '../utils/audioFx';
+import React from 'react';
+import { Award, Zap, ShieldCheck, HeartHandshake, Sparkles, CheckCircle, Code2, PenTool, Video, Box, Layers } from 'lucide-react';
+import { playHover } from '../utils/audioFx';
 
 export default function AboutSection() {
-  const [activePersona, setActivePersona] = useState('duo'); // 'duo' | 'uncle' | 'nephew'
-
   const pillars = [
     {
       title: "Client-First Approach",
@@ -14,7 +12,7 @@ export default function AboutSection() {
     {
       title: "Quality Execution",
       icon: Award,
-      description: "Pixel-perfect Figma designs, clean maintainable code, and meticulously color-graded video edits."
+      description: "Pixel-perfect Figma designs, clean maintainable code, photorealistic 3D CGI, and meticulously color-graded video edits."
     },
     {
       title: "On-Time Delivery",
@@ -58,82 +56,19 @@ export default function AboutSection() {
               We are a freelance team passionate about design, technology and storytelling. We combine design thinking, technical expertise and creative editing to help businesses build a strong digital presence.
             </p>
 
-            {/* Playful Interactive Duo Persona Switcher */}
-            <div className="pt-2">
-              <div className="inline-flex items-center gap-1.5 p-1 rounded-full bg-[#111827] border border-white/[0.08] mb-4">
-                {[
-                  { id: 'duo', label: '⚡ Duo Synergy', desc: 'Combined Power' },
-                  { id: 'uncle', label: '👨‍💻 Senior Systems (Uncle)', desc: 'Backend & Reliability' },
-                  { id: 'nephew', label: '🎨 UI/UX & Video (Nephew)', desc: 'Design & Motion' },
-                ].map((item) => (
-                  <button
-                    key={item.id}
-                    onClick={() => {
-                      playPop();
-                      setActivePersona(item.id);
-                    }}
-                    onMouseEnter={playHover}
-                    className={`px-3 py-1.5 rounded-full text-xs font-semibold transition-all ${
-                      activePersona === item.id
-                        ? 'bg-blue-600 text-white shadow-sm'
-                        : 'text-slate-400 hover:text-slate-200'
-                    }`}
-                  >
-                    {item.label}
-                  </button>
-                ))}
+            {/* Studio Capabilities Overview */}
+            <div className="p-5 rounded-2xl bg-[#111827] border border-white/[0.08] space-y-3">
+              <div className="flex items-center justify-between">
+                <span className="text-sm font-bold text-blue-400 flex items-center gap-2">
+                  <Sparkles className="w-4 h-4" /> End-to-End Digital Craftsmanship
+                </span>
+                <span className="text-[10px] text-slate-400 bg-white/[0.06] px-2.5 py-0.5 rounded-full">
+                  Full-Service Studio
+                </span>
               </div>
-
-              {/* Dynamic Persona Card */}
-              <div className="p-5 rounded-2xl bg-[#111827] border border-white/[0.08] space-y-3 transition-all animate-in fade-in duration-200">
-                {activePersona === 'duo' && (
-                  <>
-                    <div className="flex items-center justify-between">
-                      <span className="text-sm font-bold text-blue-400 flex items-center gap-2">
-                        <Sparkles className="w-4 h-4" /> Fullstack Harmony
-                      </span>
-                      <span className="text-[10px] text-slate-400 bg-white/[0.06] px-2 py-0.5 rounded-full">
-                        Combined Freelance Studio
-                      </span>
-                    </div>
-                    <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">
-                      Founded as an uncle & nephew partnership, we bridge deep software engineering principles with cutting-edge UI/UX trends, modern MERN architectures, and viral video editing to give our clients an unfair competitive advantage.
-                    </p>
-                  </>
-                )}
-
-                {activePersona === 'uncle' && (
-                  <>
-                    <div className="flex items-center justify-between">
-                      <span className="text-sm font-bold text-emerald-400 flex items-center gap-2">
-                        <Database className="w-4 h-4" /> Senior Systems & Engineering Lead
-                      </span>
-                      <span className="text-[10px] text-emerald-400/80 bg-emerald-500/10 px-2 py-0.5 rounded-full">
-                        Senior Mentor
-                      </span>
-                    </div>
-                    <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">
-                      Brings seasoned engineering intuition, robust RESTful APIs, database schema design, enterprise security, fault-tolerant WordPress core architecture, and long-term stability.
-                    </p>
-                  </>
-                )}
-
-                {activePersona === 'nephew' && (
-                  <>
-                    <div className="flex items-center justify-between">
-                      <span className="text-sm font-bold text-purple-400 flex items-center gap-2">
-                        <PenTool className="w-4 h-4" /> Creative Director & Fullstack Crafter
-                      </span>
-                      <span className="text-[10px] text-purple-400/80 bg-purple-500/10 px-2 py-0.5 rounded-full">
-                        Modern Tech Lead
-                      </span>
-                    </div>
-                    <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">
-                      Specializes in Figma design systems, modern React & Vite frontend speed, conversion-optimized landing pages, 4K color grading, and dynamic high-retention video editing.
-                    </p>
-                  </>
-                )}
-              </div>
+              <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">
+                From user research and interactive Figma design systems to scalable MERN web applications, custom WordPress platforms, photorealistic 3D CGI product animations, and cinematic video editing — we deliver clean, high-performance digital products engineered to elevate your brand.
+              </p>
             </div>
 
             {/* Quick value checklist */}
@@ -148,17 +83,25 @@ export default function AboutSection() {
               </div>
               <div className="flex items-center gap-2 text-xs sm:text-sm text-slate-300">
                 <CheckCircle className="w-4 h-4 text-blue-400 shrink-0" />
-                <span>High-retention video storytelling</span>
+                <span>Photorealistic 3D & CGI animation</span>
               </div>
               <div className="flex items-center gap-2 text-xs sm:text-sm text-slate-300">
                 <CheckCircle className="w-4 h-4 text-blue-400 shrink-0" />
                 <span>Conversion-optimized UI/UX</span>
               </div>
+              <div className="flex items-center gap-2 text-xs sm:text-sm text-slate-300">
+                <CheckCircle className="w-4 h-4 text-blue-400 shrink-0" />
+                <span>Cinematic video storytelling</span>
+              </div>
+              <div className="flex items-center gap-2 text-xs sm:text-sm text-slate-300">
+                <CheckCircle className="w-4 h-4 text-blue-400 shrink-0" />
+                <span>Lighthouse 95+ speed & SEO</span>
+              </div>
             </div>
 
           </div>
 
-          {/* Right Column: Creative Studio Aesthetic Image with interactive hover card */}
+          {/* Right Column: Creative Studio Aesthetic Image with quote */}
           <div className="lg:col-span-5">
             <div className="relative rounded-3xl overflow-hidden bg-[#111827] border border-white/[0.1] shadow-2xl group cursor-pointer hover:border-blue-500/40 transition-all duration-300">
               <img
@@ -174,7 +117,7 @@ export default function AboutSection() {
                     "Every digital touchpoint should be an experience that converts visitors into believers."
                   </p>
                   <span className="text-[11px] text-blue-400 font-semibold block mt-1.5 flex items-center justify-between">
-                    <span>— GenUI Studio Founders</span>
+                    <span>— GenUI Studio</span>
                     <span className="text-[10px] text-slate-400">Kolkata, India</span>
                   </span>
                 </div>
