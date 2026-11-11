@@ -291,6 +291,7 @@ export default function ContactSection() {
                       <option value="WordPress Solutions">WordPress Solutions</option>
                       <option value="Video Editing">Video Editing (YouTube, Reels, Promo)</option>
                       <option value="3D Animation (Industry, Factory & Product)">3D Animation (Industry, Factory & Product)</option>
+                      <option value="Generative AI & LLM Systems">Generative AI & LLM Systems (Agents, RAG & GenUI)</option>
                       <option value="Full Digital Package">Full Digital Package (Design + Web + Video)</option>
                       <option value="Other">Other / Custom Inquiry</option>
                     </select>

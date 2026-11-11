@@ -1,9 +1,25 @@
 import React from 'react';
-import { Box, PenTool, Code2, Globe, Video, ArrowUpRight, CheckCircle2 } from 'lucide-react';
+import { Box, PenTool, Code2, Globe, Video, ArrowUpRight, CheckCircle2, Sparkles, Bot } from 'lucide-react';
 import { playPop, playHover } from '../utils/audioFx';
 
 export default function ServicesSection({ onSelectService }) {
   const services = [
+    {
+      id: "generative-ai",
+      title: "Generative AI & LLM Systems",
+      shortSummary: "Autonomous AI agents, enterprise RAG knowledge engines & generative UI.",
+      detailedDesc: "Custom AI agent swarms, tool-calling pipelines, hybrid vector search (Pinecone), and generative UI.",
+      icon: Sparkles,
+      badge: "Next-Gen AI",
+      bullets: [
+        "Autonomous multi-agent swarms with authenticated tool & API execution",
+        "Enterprise RAG vector knowledge bases with zero-hallucination guardrails",
+        "Generative UI: Dynamic React dashboards & interactive forms from prompts",
+        "Private open-source LLM fine-tuning & local hosting (Llama 3, vLLM)"
+      ],
+      turnaround: "1 - 3 Weeks",
+      link: "#ai"
+    },
     {
       id: "3d-animation",
       title: "3D Animation & CGI",

@@ -10,7 +10,7 @@ export default function PortfolioSection({
 }) {
   const [activeCategory, setActiveCategory] = useState('All');
 
-  const categories = ['All', 'Websites', 'UI/UX', 'WordPress', 'Video Edits', '3D Animation'];
+  const categories = ['All', 'Generative AI', 'Websites', 'UI/UX', 'WordPress', 'Video Edits', '3D Animation'];
 
   const filteredProjects = activeCategory === 'All'
     ? projects

@@ -36,6 +36,9 @@ export default function QuoteCalculatorModal({ isOpen, onClose, initialData = {}
     } else if (serviceType === '3D Animation & CGI' || serviceType.includes('3D')) {
       base = scope === 'Large' ? 1200 : scope === 'Medium' ? 750 : 450;
       days = scope === 'Large' ? '3-4 Weeks' : scope === 'Medium' ? '2 Weeks' : '7-10 Days';
+    } else if (serviceType === 'Generative AI & LLMs' || serviceType.includes('AI') || serviceType.includes('LLM')) {
+      base = scope === 'Large' ? 1650 : scope === 'Medium' ? 950 : 650;
+      days = scope === 'Large' ? '3-4 Weeks' : scope === 'Medium' ? '2 Weeks' : '7-10 Days';
     }
 
     if (urgency === 'Rush') {
@@ -148,7 +151,8 @@ export default function QuoteCalculatorModal({ isOpen, onClose, initialData = {}
                     'Web Design & Development',
                     'WordPress Solutions',
                     'Video Editing',
-                    '3D Animation & CGI'
+                    '3D Animation & CGI',
+                    'Generative AI & LLMs'
                   ].map((srv) => (
                     <button
                       key={srv}

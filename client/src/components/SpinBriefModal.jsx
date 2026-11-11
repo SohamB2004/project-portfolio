@@ -10,6 +10,7 @@ export default function SpinBriefModal({ isOpen, onClose, onSelectIdea }) {
     { type: 'WordPress Solutions', text: 'Custom High-Speed WooCommerce Storefront' },
     { type: 'Video Editing', text: 'High-Retention 4K YouTube & Reel Edit' },
     { type: '3D Animation & CGI', text: 'Photorealistic 360° Product Commercial & Industrial Walkthrough' },
+    { type: 'Generative AI & LLMs', text: 'Autonomous Multi-Agent Copilot & Enterprise RAG Pipeline' },
     { type: 'Web Design & Development', text: 'Modern SaaS Portal with Dark Mode' }
   ];
 
@@ -28,7 +29,8 @@ export default function SpinBriefModal({ isOpen, onClose, onSelectIdea }) {
     'Frictionless 1-page checkout conversion flow',
     'Micro-interactions & fluid animations',
     'Beat-synchronized sound design & foley',
-    'Physical ray-traced caustics and 60fps turntable motion'
+    'Physical ray-traced caustics and 60fps turntable motion',
+    'Sub-second hybrid vector search with zero hallucinations'
   ];
 
   const [currentDeliverable, setCurrentDeliverable] = useState(deliverables[0]);

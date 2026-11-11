@@ -213,7 +213,89 @@ export const animationProjects = [
   }
 ];
 
+export const generativeAiProjects = [
+  {
+    id: "ai-neurodocs-rag",
+    title: "NeuroDocs AI – Enterprise RAG & Semantic Intelligence",
+    category: "Generative AI",
+    categoryTag: "Enterprise RAG & Knowledge Engine",
+    tags: ["RAG Architecture", "Pinecone Vector DB", "LangChain", "Claude 3.5 Sonnet", "Hybrid Search"],
+    description: "Enterprise semantic document intelligence engine indexing 50,000+ technical manuals and legal contracts with sub-second hybrid vector search, source citations, and zero-hallucination guardrails.",
+    longDescription: "Architected to eliminate data silos across regulated industries. Features multi-format parsing (PDF, DOCX, OCR), dense/sparse vector embedding pipelines via text-embedding-3-large, Cohere re-ranking, and dynamic citation generation directly linking responses to exact document pages.",
+    client: "Aegis Enterprise Solutions",
+    year: "2024",
+    image: "https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?q=80&w=1200&auto=format&fit=crop",
+    featured: true,
+    highlights: [
+      "Sub-second hybrid dense-sparse vector query latency",
+      "Precise page-level citation and highlight bounding boxes",
+      "NeMo guardrails preventing hallucination and prompt injection",
+      "SOC2-compliant role-based document access controls"
+    ]
+  },
+  {
+    id: "ai-omniagent-copilot",
+    title: "OmniAgent – Autonomous Multi-Agent Support Swarm",
+    category: "Generative AI",
+    categoryTag: "Autonomous AI Agent Swarm",
+    tags: ["AI Agent Swarms", "Tool Calling", "FastAPI", "PostgreSQL", "ReAct Framework"],
+    description: "Self-governing AI support swarm capable of autonomous multi-step reasoning, executing CRM updates, processing refund requests via Stripe APIs, and intelligent human escalation.",
+    longDescription: "An advanced multi-agent architecture built with the ReAct paradigm and OpenAI tool-calling. Specialized worker agents coordinate tasks: a Triager routes inquiries, a Resolver queries the knowledge base, an Action Agent executes authenticated API calls, and a Verifier audits actions before final execution.",
+    client: "Stratos SaaS Ecosystem",
+    year: "2024",
+    image: "https://images.unsplash.com/photo-1677442136019-21780efad99a?q=80&w=1200&auto=format&fit=crop",
+    featured: true,
+    highlights: [
+      "Autonomous multi-step tool execution across Stripe, Zendesk, and PostgreSQL",
+      "Human-in-the-loop fallback mechanism for high-value financial actions",
+      "82% reduction in tier-1 support ticket resolution time",
+      "Full execution audit trace logged with step-by-step reasoning"
+    ]
+  },
+  {
+    id: "ai-synthetix-genui",
+    title: "Synthetix UI – Natural Language to Generative Interface Engine",
+    category: "Generative AI",
+    categoryTag: "Generative UI & Dynamic Dashboards",
+    tags: ["Generative UI", "Vercel AI SDK", "React Server Components", "JSON Schema", "Tailwind"],
+    description: "A dynamic analytics platform where natural language prompts are compiled in real-time into rich, interactive React dashboard widgets, live charts, and downloadable CSVs.",
+    longDescription: "Pioneering the generative UI paradigm. Instead of returning plain markdown text, the system predicts and streams structured UI component definitions directly into the client DOM using JSON Schema validation and React state hydration.",
+    client: "Voxel Metrics Global",
+    year: "2024",
+    image: "https://images.unsplash.com/photo-1620712943543-bcc4688e7485?q=80&w=1200&auto=format&fit=crop",
+    featured: true,
+    highlights: [
+      "Zero-latency UI streaming using Vercel AI SDK and streaming JSON",
+      "Deterministic component generation validated against strict Zod schemas",
+      "Interactive client-side charting with zoom, pan, and filter capabilities",
+      "Dark-mode optimized aesthetic with responsive grid auto-layout"
+    ]
+  },
+  {
+    id: "ai-brandvoice-finetuning",
+    title: "BrandVoice AI – Domain Fine-Tuned Model & Content Studio",
+    category: "Generative AI",
+    categoryTag: "Custom LLM Fine-Tuning",
+    tags: ["LLM Fine-Tuning", "LoRA / QLoRA", "Llama 3 70B", "Hugging Face", "vLLM Inference"],
+    description: "Private, custom-trained open-source LLM calibrated on 500,000 words of proprietary brand copy, generating ultra-targeted advertising, product descriptions, and technical whitepapers.",
+    longDescription: "Built for brands demanding 100% voice consistency and private on-premise execution. Fine-tuned via QLoRA on Meta Llama 3 70B with custom loss masking for brand vocabulary and cadence. Hosted on private GPU nodes with vLLM for high-throughput sub-15ms time-to-first-token.",
+    client: "Apex Luxury Group",
+    year: "2024",
+    image: "https://images.unsplash.com/photo-1634017839464-5c339ebe3cb4?q=80&w=1200&auto=format&fit=crop",
+    featured: false,
+    highlights: [
+      "Fine-tuned on private domain data with 99.2% tone adherence score",
+      "Zero data leakage with private self-hosted vLLM inference server",
+      "Custom guardrails filtering competitor mentions and unauthorized claims",
+      "Batch generation pipeline producing 10,000 localized variants per hour"
+    ]
+  }
+];
+
 export const fallbackProjects = [
+  // --- GENERATIVE AI SHOWCASE ---
+  ...generativeAiProjects,
+
   // --- 3D ANIMATION HERO SHOWCASE ---
   ...animationProjects,
 
@@ -578,6 +660,24 @@ export const fallbackServices = [
     ],
     pricingStartsAt: "$150",
     turnaround: "2 - 5 Days"
+  },
+  {
+    id: "generative-ai",
+    number: "06",
+    title: "Generative AI & LLM Systems",
+    shortDescription: "Autonomous AI agents, enterprise RAG knowledge engines, and generative interfaces.",
+    fullDescription: "Custom AI agent swarms, tool calling pipelines, vector databases (Pinecone/Milvus), domain-specific LLM fine-tuning, and dynamic generative UI interfaces engineered for production.",
+    icon: "Sparkles",
+    badge: "Next-Gen AI",
+    features: [
+      "Autonomous multi-agent swarms with function/tool execution",
+      "Enterprise RAG pipelines with hybrid dense/sparse vector search",
+      "Dynamic Generative UI & conversational AI workflows",
+      "Private open-source LLM deployment (Llama 3, Mistral, Ollama)",
+      "Strict anti-hallucination guardrails, eval suites & streaming APIs"
+    ],
+    pricingStartsAt: "$650",
+    turnaround: "1 - 3 Weeks"
   }
 ];
 

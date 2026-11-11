@@ -48,6 +48,8 @@ export default function Hero({ onOpenQuoteModal, onOpenProjectModal }) {
               <span>Video</span>
               <span className="text-slate-600">•</span>
               <span>3D Animation</span>
+              <span className="text-slate-600">•</span>
+              <span className="text-cyan-400 font-semibold">Gen AI</span>
               <span className="text-[10px] font-bold text-blue-400 bg-blue-500/20 px-2 py-0.5 rounded-full ml-1">
                 Studio
               </span>

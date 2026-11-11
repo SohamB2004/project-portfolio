@@ -67,6 +67,16 @@ export default function CommandPalette({
       }
     },
     {
+      id: 'ai',
+      title: 'Explore Generative AI, Agents & Enterprise RAG Systems',
+      category: 'Navigation',
+      icon: ArrowRight,
+      action: () => {
+        onClose();
+        window.location.hash = '#ai';
+      }
+    },
+    {
       id: 'animation',
       title: 'Explore 3D Animation & CGI (Industry, Factory, Product)',
       category: 'Navigation',

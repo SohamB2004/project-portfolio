@@ -93,6 +93,25 @@ export const servicesData = [
     pricingStartsAt: "$450",
     deliverables: "4K Master Video Loops, High-Res CGI Render Frames, Blender/Source Assets",
     estimatedTurnaround: "1 - 3 Weeks"
+  },
+  {
+    id: "generative-ai",
+    number: "06",
+    title: "Generative AI & LLM Systems",
+    shortDescription: "Autonomous AI agents, enterprise RAG knowledge engines, and generative UI.",
+    fullDescription: "From multi-agent swarms with tool calling to enterprise RAG vector pipelines and generative UI dashboards. We architect production AI that delivers measurable business outcomes.",
+    icon: "Sparkles",
+    gradient: "from-blue-600/25 to-cyan-500/15",
+    features: [
+      "Autonomous Multi-Agent Swarms (ReAct, Tool Calling)",
+      "Enterprise RAG & Hybrid Vector Search (Pinecone, Milvus)",
+      "Dynamic Generative UI & React Server Component Synthesis",
+      "Custom Open-Weight LLM Fine-Tuning (Llama 3, LoRA/QLoRA)",
+      "Evaluation Suites, NeMo Guardrails & Private Deployment"
+    ],
+    pricingStartsAt: "$650",
+    deliverables: "Production Agent Codebase, Vector DB Pipelines, API Endpoints, Documentation",
+    estimatedTurnaround: "1 - 3 Weeks"
   }
 ];
 

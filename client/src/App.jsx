@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import Navbar from './components/Navbar';
 import Hero from './components/Hero';
 import ServicesSection from './components/ServicesSection';
+import GenerativeAISection from './components/GenerativeAISection';
 import AnimationSection from './components/AnimationSection';
 import PortfolioSection from './components/PortfolioSection';
 import ProjectDetailShowcase from './components/ProjectDetailShowcase';
@@ -115,6 +116,8 @@ export default function App() {
         />
 
         <ServicesSection onSelectService={handleSelectService} />
+
+        <GenerativeAISection onOpenQuoteModal={handleSelectService} />
 
         <AnimationSection onOpenQuoteModal={handleSelectService} />
 

@@ -51,7 +51,7 @@ export default function Footer() {
               Navigation
             </h4>
             <ul className="space-y-2">
-              {['Home', 'Services', '3D Animation', 'Portfolio', 'About', 'Contact'].map((item) => (
+              {['Home', 'Services', 'Gen AI', '3D Animation', 'Portfolio', 'About', 'Contact'].map((item) => (
                 <li key={item}>
                   <a
                     href={`#${item.toLowerCase()}`}
@@ -75,6 +75,7 @@ export default function Footer() {
               <li className="text-slate-300">Custom WordPress & WooCommerce Builds</li>
               <li className="text-slate-300">Cinematic Video Editing (YouTube, Reels, Ads)</li>
               <li className="text-slate-300">3D Animation & CGI (Industry, Factory, Product)</li>
+              <li className="text-slate-300">Generative AI, Autonomous Agents & Enterprise RAG</li>
             </ul>
           </div>
 
