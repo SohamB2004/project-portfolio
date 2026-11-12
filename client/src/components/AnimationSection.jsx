@@ -13,9 +13,9 @@ export default function AnimationSection({ onOpenQuoteModal }) {
 
   const categories = [
     { id: 'All', label: 'All 3D Works', icon: Box },
+    { id: 'Factory & Process', label: 'Factory & Boiler Process 3D', icon: Factory },
     { id: 'Product Animation', label: 'Product-Based 3D', icon: Gem },
-    { id: 'Industry Animation', label: 'Industry-Based 3D', icon: Building2 },
-    { id: 'Factory & Process', label: 'Factory & Facility 3D', icon: Factory },
+    { id: 'Industry Animation', label: 'Industry & Architectural 3D', icon: Building2 },
   ];
 
   const filteredProjects = activeCategory === 'All'
@@ -67,11 +67,11 @@ export default function AnimationSection({ onOpenQuoteModal }) {
       points: ["Daylight & sun angle studies", "Heritage relief ornamentation", "Acoustic spatial layout", "Volumetric atmospheric lighting"]
     },
     {
-      title: "Factory & Facility 3D",
-      subtitle: "Manufacturing & Commercial Pipelines",
+      title: "Factory & Boiler Plant 3D",
+      subtitle: "Thermal & Industrial Process Animation",
       icon: Factory,
-      description: "Complex commercial layouts, industrial assembly mechanisms, back-of-house hospitality infrastructure, and workflow simulations for enterprise stakeholders.",
-      points: ["Equipment mechanism modeling", "Facility clearance & circulation", "Back-of-house efficiency", "Technical workflow presentations"]
+      description: "High-precision CAD animations for heavy industrial boiler plants, biomass furnace systems, cyclone particulate separators, high-elevation flue stacks, and factory piping loops.",
+      points: ["Boiler & furnace thermal loop modeling", "Cyclone separator & filtration stages", "High-elevation flue stack & ducting", "Full facility isometric walkthroughs"]
     }
   ];
 
