@@ -30,8 +30,8 @@ export default function Footer() {
                   </svg>
                 </div>
               </div>
-              <span className="text-lg font-bold text-white tracking-tight">
-                GenUI <span className="text-blue-500">Studio</span>
+              <span className="text-lg font-bold text-white tracking-tight flex items-center gap-0.5">
+                Shivera<span className="text-blue-500 font-bold text-xl leading-none">.</span>
               </span>
             </div>
 
@@ -84,7 +84,7 @@ export default function Footer() {
         {/* Bottom Credits & Back to Top */}
         <div className="pt-8 flex flex-col sm:flex-row items-center justify-between gap-4">
           <p className="text-slate-500">
-            © {new Date().getFullYear()} GenUI Studio. All rights reserved.
+            © {new Date().getFullYear()} Shivera. All rights reserved.
           </p>
 
           <button

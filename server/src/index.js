@@ -51,7 +51,7 @@ app.use('/api', apiRouter);
 // Root route
 app.get('/', (req, res) => {
   res.json({
-    message: 'Welcome to GenUI Studio Freelance Portfolio API',
+    message: 'Welcome to Shivera Digital Studio API',
     endpoints: {
       health: '/api/health',
       projects: '/api/projects',
@@ -79,7 +79,7 @@ if (!process.env.VERCEL) {
     }
 
     app.listen(PORT, () => {
-      console.log(`🚀 GenUI Portfolio Server listening on http://localhost:${PORT}`);
+      console.log(`🚀 Shivera Portfolio Server listening on http://localhost:${PORT}`);
     });
   }
   startServer();

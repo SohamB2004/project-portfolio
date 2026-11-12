@@ -117,7 +117,7 @@ export default function AboutSection() {
                     "Every digital touchpoint should be an experience that converts visitors into believers."
                   </p>
                   <span className="text-[11px] text-blue-400 font-semibold block mt-1.5 flex items-center justify-between">
-                    <span>— GenUI Studio</span>
+                    <span>— Shivera</span>
                     <span className="text-[10px] text-slate-400">Kolkata, India</span>
                   </span>
                 </div>

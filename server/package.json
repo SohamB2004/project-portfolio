@@ -1,5 +1,5 @@
 {
-  "name": "genui-portfolio-server",
+  "name": "shivera-server",
   "version": "1.0.0",
   "description": "Backend API for GenUI Studio Portfolio",
   "main": "src/index.js",

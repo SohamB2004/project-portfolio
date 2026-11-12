@@ -230,7 +230,7 @@ export default function CommandPalette({
             <span><kbd className="font-mono bg-white/[0.06] px-1.5 py-0.5 rounded border border-white/[0.08]">↑</kbd> <kbd className="font-mono bg-white/[0.06] px-1.5 py-0.5 rounded border border-white/[0.08]">↓</kbd> navigate</span>
             <span><kbd className="font-mono bg-white/[0.06] px-1.5 py-0.5 rounded border border-white/[0.08]">↵</kbd> select</span>
           </div>
-          <span>GenUI Studio Command Menu</span>
+          <span>Shivera Command Menu</span>
         </div>
 
       </div>

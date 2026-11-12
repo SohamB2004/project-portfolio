@@ -61,8 +61,8 @@ export default function Navbar({
                 </svg>
               </div>
             </div>
-            <span className="text-xl font-bold tracking-tight text-white flex items-center gap-1">
-              GenUI <span className="text-blue-500 font-semibold">Studio</span>
+            <span className="text-xl font-bold tracking-tight text-white flex items-center gap-0.5">
+              Shivera<span className="text-blue-500 font-bold text-2xl leading-none">.</span>
             </span>
           </a>
 

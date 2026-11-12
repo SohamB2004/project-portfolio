@@ -10,7 +10,7 @@ router.get('/health', (req, res) => {
   res.json({
     status: 'healthy',
     timestamp: new Date().toISOString(),
-    service: 'GenUI Studio Portfolio API'
+    service: 'Shivera Portfolio API'
   });
 });
 

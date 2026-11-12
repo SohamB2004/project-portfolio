@@ -1,5 +1,5 @@
 {
-  "name": "genui-freelance-portfolio",
+  "name": "shivera-portfolio",
   "version": "1.0.0",
   "description": "Fullstack MERN Portfolio for UI/UX Design, Web Design & WordPress Development, and Video Editing Freelance Business",
   "type": "module",
@@ -25,6 +25,6 @@
     "video-editing",
     "agency"
   ],
-  "author": "GenUI Studio",
+  "author": "Shivera",
   "license": "ISC"
 }

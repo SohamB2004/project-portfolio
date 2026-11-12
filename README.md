@@ -1,4 +1,4 @@
-# GenUI Studio – Freelance Business Portfolio (MERN Stack)
+# Shivera – Digital Design, Web Development, 3D & AI Studio
 
 A full-stack, UI/UX portfolio website designed and developed for a freelance studio offering paid services in **UI/UX Design**, **Web Design & Development**, **WordPress Solutions**, and **Video Editing**.
 

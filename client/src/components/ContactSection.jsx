@@ -221,7 +221,7 @@ export default function ContactSection() {
                   </div>
                   <h3 className="text-2xl font-bold text-white">Message Received!</h3>
                   <p className="text-sm text-slate-300 max-w-md mx-auto leading-relaxed">
-                    Thank you for reaching out to GenUI Studio. We have received your project details and will review and reply within 24 hours.
+                    Thank you for reaching out to Shivera. We have received your project details and will review and reply within 24 hours.
                   </p>
                   <button
                     onClick={() => {
