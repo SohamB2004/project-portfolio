@@ -46,7 +46,7 @@ export default async function handler(req, res) {
           name: name || 'Quote Request User',
           email,
           projectType: serviceType || 'General Quote',
-          budget: `$${baseEstimate}`,
+          budget: 'To be discussed with client',
           timeline: durationEstimate,
           notes: notes || '',
           createdAt: new Date().toISOString()

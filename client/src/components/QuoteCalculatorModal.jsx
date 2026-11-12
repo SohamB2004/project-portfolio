@@ -1,5 +1,5 @@
-import React, { useState } from 'react';
-import { X, Calculator, ArrowUpRight, CheckCircle2, Clock, DollarSign, Sparkles, Loader2 } from 'lucide-react';
+import React, { useState, useEffect } from 'react';
+import { X, Calculator, ArrowUpRight, CheckCircle2, Clock, Sparkles, Loader2, ArrowLeft } from 'lucide-react';
 import { playPop, playChime } from '../utils/audioFx';
 import { fireConfetti } from '../utils/confetti';
 import { getApiUrl } from '../utils/api';
@@ -14,41 +14,44 @@ export default function QuoteCalculatorModal({ isOpen, onClose, initialData = {}
   const [submitting, setSubmitting] = useState(false);
   const [quoteSubmitted, setQuoteSubmitted] = useState(false);
 
+  useEffect(() => {
+    const handleKeyDown = (e) => {
+      if (e.key === 'Escape') onClose();
+    };
+    if (isOpen) {
+      window.addEventListener('keydown', handleKeyDown);
+    }
+    return () => window.removeEventListener('keydown', handleKeyDown);
+  }, [isOpen, onClose]);
+
   if (!isOpen) return null;
 
-  // Real-time calculation logic
-  const calculateEstimate = () => {
-    let base = 500;
+  // Timeline calculation based on service & scope
+  const calculateTimeline = () => {
     let days = "2-3 Weeks";
 
     if (serviceType === 'UI/UX Design') {
-      base = scope === 'Large' ? 950 : scope === 'Medium' ? 650 : 450;
       days = scope === 'Large' ? '3 Weeks' : scope === 'Medium' ? '1-2 Weeks' : '5-7 Days';
     } else if (serviceType === 'Web Design & Development') {
-      base = scope === 'Large' ? 1450 : scope === 'Medium' ? 950 : 650;
       days = scope === 'Large' ? '3-4 Weeks' : scope === 'Medium' ? '2 Weeks' : '10 Days';
     } else if (serviceType === 'WordPress Solutions') {
-      base = scope === 'Large' ? 850 : scope === 'Medium' ? 600 : 400;
       days = scope === 'Large' ? '2-3 Weeks' : scope === 'Medium' ? '1-2 Weeks' : '5-7 Days';
     } else if (serviceType === 'Video Editing') {
-      base = scope === 'Large' ? 450 : scope === 'Medium' ? 250 : 150;
       days = scope === 'Large' ? '5-7 Days' : scope === 'Medium' ? '3-4 Days' : '48 Hours';
     } else if (serviceType === '3D Animation & CGI' || serviceType.includes('3D')) {
-      base = scope === 'Large' ? 1200 : scope === 'Medium' ? 750 : 450;
       days = scope === 'Large' ? '3-4 Weeks' : scope === 'Medium' ? '2 Weeks' : '7-10 Days';
     } else if (serviceType === 'Generative AI & LLMs' || serviceType.includes('AI') || serviceType.includes('LLM')) {
-      base = scope === 'Large' ? 1650 : scope === 'Medium' ? 950 : 650;
       days = scope === 'Large' ? '3-4 Weeks' : scope === 'Medium' ? '2 Weeks' : '7-10 Days';
     }
 
     if (urgency === 'Rush') {
-      base = Math.round(base * 1.25);
+      days = `${days} (Expedited)`;
     }
 
-    return { base, days };
+    return days;
   };
 
-  const { base, days } = calculateEstimate();
+  const estimatedTimeline = calculateTimeline();
 
   const handleSendQuote = async (e) => {
     e.preventDefault();
@@ -69,7 +72,8 @@ export default function QuoteCalculatorModal({ isOpen, onClose, initialData = {}
           urgency,
           name: name || 'Prospective Client',
           email,
-          notes
+          notes,
+          budget: 'To be discussed'
         })
       });
       setQuoteSubmitted(true);
@@ -85,21 +89,32 @@ export default function QuoteCalculatorModal({ isOpen, onClose, initialData = {}
   };
 
   return (
-    <div className="fixed inset-0 z-50 flex items-center justify-center p-4 sm:p-6 bg-black/85 backdrop-blur-md animate-in fade-in duration-200">
-      
+    <div
+      onClick={onClose}
+      className="fixed inset-0 z-50 flex items-center justify-center p-4 sm:p-6 bg-black/90 backdrop-blur-md animate-in fade-in duration-200 overflow-y-auto"
+    >
+      {/* Floating Top-Right Exit Button */}
+      <button
+        onClick={onClose}
+        className="fixed top-4 right-4 sm:top-6 sm:right-6 z-[60] px-4 py-2 rounded-full bg-white/10 hover:bg-white/20 text-white font-semibold text-xs sm:text-sm backdrop-blur-md border border-white/20 shadow-2xl flex items-center gap-2 transition-all hover:scale-105 active:scale-95 cursor-pointer"
+      >
+        <ArrowLeft className="w-4 h-4" />
+        <span>Back to Website</span>
+      </button>
+
       <div
-        className="relative w-full max-w-2xl rounded-3xl bg-[#111827] border border-white/[0.12] overflow-hidden shadow-2xl animate-in zoom-in-95 duration-200 max-h-[90vh] flex flex-col"
+        className="relative w-full max-w-2xl rounded-3xl bg-[#111827] border border-white/[0.12] overflow-hidden shadow-2xl animate-in zoom-in-95 duration-200 max-h-[90vh] flex flex-col my-auto"
         onClick={(e) => e.stopPropagation()}
       >
         {/* Modal Header */}
         <div className="flex items-center justify-between px-6 py-4 border-b border-white/[0.08] bg-[#0D1322] shrink-0">
-          <div className="flex items-center gap-2">
+          <div className="flex items-center gap-2.5">
             <div className="w-8 h-8 rounded-lg bg-blue-600/20 border border-blue-500/30 flex items-center justify-center text-blue-400">
               <Calculator className="w-4 h-4" />
             </div>
             <div>
-              <h3 className="text-sm font-bold text-white">Project Cost & Timeline Estimator</h3>
-              <p className="text-[11px] text-slate-400">Instant transparent freelance pricing</p>
+              <h3 className="text-sm font-bold text-white">Project Scope & Quote Request</h3>
+              <p className="text-[11px] text-slate-400">Tailored proposal based on your exact specifications</p>
             </div>
           </div>
 
@@ -108,9 +123,12 @@ export default function QuoteCalculatorModal({ isOpen, onClose, initialData = {}
               playPop();
               onClose();
             }}
-            className="w-8 h-8 rounded-full bg-white/[0.06] hover:bg-white/[0.12] text-slate-300 hover:text-white flex items-center justify-center transition-colors"
+            className="px-3 py-1.5 rounded-full bg-white/[0.08] hover:bg-white/[0.15] text-slate-200 hover:text-white border border-white/[0.12] flex items-center gap-1.5 text-xs font-semibold transition-all active:scale-95 cursor-pointer shadow-sm"
+            aria-label="Close modal"
           >
-            <X className="w-4 h-4" />
+            <ArrowLeft className="w-3.5 h-3.5" />
+            <span>Back</span>
+            <X className="w-3.5 h-3.5 ml-1" />
           </button>
         </div>
 
@@ -124,7 +142,7 @@ export default function QuoteCalculatorModal({ isOpen, onClose, initialData = {}
               </div>
               <h4 className="text-xl font-bold text-white">Quote Request Received!</h4>
               <p className="text-xs sm:text-sm text-slate-300 max-w-md mx-auto leading-relaxed">
-                We have logged your estimate (<strong className="text-blue-400">${base} USD</strong> for {serviceType}). Our team will email you a detailed project roadmap within 24 hours.
+                Thank you for reaching out. We have logged your request for <strong className="text-blue-400">{serviceType}</strong> ({scope} scope). Our team will review your specifications and email you to discuss the project scope, timeline, and budget.
               </p>
               <button
                 onClick={() => {
@@ -132,7 +150,7 @@ export default function QuoteCalculatorModal({ isOpen, onClose, initialData = {}
                   setQuoteSubmitted(false);
                   onClose();
                 }}
-                className="mt-4 px-6 py-2.5 rounded-full text-xs font-semibold bg-blue-600 hover:bg-blue-500 text-white shadow-glow-sm transition-all active:scale-95"
+                className="mt-4 px-6 py-2.5 rounded-full text-xs font-semibold bg-blue-600 hover:bg-blue-500 text-white shadow-glow-sm transition-all active:scale-95 cursor-pointer"
               >
                 Done
               </button>
@@ -180,9 +198,9 @@ export default function QuoteCalculatorModal({ isOpen, onClose, initialData = {}
                 </label>
                 <div className="grid grid-cols-3 gap-2.5">
                   {[
-                    { id: 'Small', label: 'Starter', desc: '1-3 screens / single edit' },
-                    { id: 'Medium', label: 'Standard', desc: 'Complete site / 5+ edits' },
-                    { id: 'Large', label: 'Premium', desc: 'Full custom build / ongoing' },
+                    { id: 'Small', label: 'Starter', desc: '1-3 screens / single asset' },
+                    { id: 'Medium', label: 'Standard', desc: 'Complete build / 5+ assets' },
+                    { id: 'Large', label: 'Premium', desc: 'Full custom architecture' },
                   ].map((sc) => (
                     <button
                       key={sc.id}
@@ -204,25 +222,25 @@ export default function QuoteCalculatorModal({ isOpen, onClose, initialData = {}
                 </div>
               </div>
 
-              {/* Live Estimate Card */}
-              <div className="p-4 rounded-2xl bg-gradient-to-r from-blue-950/60 to-indigo-950/50 border border-blue-500/30 flex items-center justify-between">
-                <div>
-                  <span className="text-[10px] uppercase font-bold text-blue-400 tracking-wider">
-                    Estimated Budget
+              {/* Timeline & Discussion Notice (No Budget Shown) */}
+              <div className="p-4 rounded-2xl bg-[#0D1322] border border-white/[0.08] flex items-center justify-between">
+                <div className="space-y-0.5">
+                  <span className="text-[10px] uppercase font-bold text-slate-400 tracking-wider flex items-center gap-1.5">
+                    <Clock className="w-3.5 h-3.5 text-blue-400" />
+                    Estimated Turnaround
                   </span>
-                  <div className="text-3xl font-extrabold text-white mt-0.5">
-                    ${base} <span className="text-xs font-normal text-slate-400">USD</span>
+                  <div className="text-base sm:text-lg font-bold text-white">
+                    {estimatedTimeline}
                   </div>
                 </div>
 
-                <div className="text-right">
-                  <span className="text-[10px] uppercase font-bold text-slate-400 tracking-wider flex items-center justify-end gap-1">
-                    <Clock className="w-3 h-3 text-blue-400" />
-                    Turnaround
+                <div className="text-right max-w-[220px]">
+                  <span className="text-[10px] uppercase font-bold text-blue-400 tracking-wider">
+                    Custom Pricing
                   </span>
-                  <div className="text-sm font-bold text-white mt-0.5">
-                    {days}
-                  </div>
+                  <p className="text-[11px] text-slate-400 mt-0.5 leading-snug">
+                    Budget is tailored to your scope & discussed directly with you.
+                  </p>
                 </div>
               </div>
 
@@ -252,12 +270,12 @@ export default function QuoteCalculatorModal({ isOpen, onClose, initialData = {}
               </div>
 
               <div>
-                <label className="block text-xs font-medium text-slate-300 mb-1">Project Notes (Optional)</label>
+                <label className="block text-xs font-medium text-slate-300 mb-1">Project Notes & Requirements</label>
                 <textarea
-                  rows="2"
+                  rows="3"
                   value={notes}
                   onChange={(e) => setNotes(e.target.value)}
-                  placeholder="Tell us a few words about what you want to achieve..."
+                  placeholder="Tell us a few words about your project requirements, goals, or preferred launch date..."
                   className="w-full px-3.5 py-2.5 rounded-xl bg-[#0D1322] border border-white/[0.08] text-xs text-white placeholder-slate-500 focus:outline-none focus:border-blue-500 resize-none"
                 />
               </div>
@@ -266,7 +284,7 @@ export default function QuoteCalculatorModal({ isOpen, onClose, initialData = {}
               <button
                 type="submit"
                 disabled={submitting}
-                className="w-full py-3 px-6 rounded-xl text-xs sm:text-sm font-semibold text-white bg-blue-600 hover:bg-blue-500 transition-all shadow-md hover:shadow-glow-sm flex items-center justify-center gap-2 active:scale-95 group"
+                className="w-full py-3 px-6 rounded-xl text-xs sm:text-sm font-semibold text-white bg-blue-600 hover:bg-blue-500 transition-all shadow-md hover:shadow-glow-sm flex items-center justify-center gap-2 active:scale-95 group cursor-pointer"
               >
                 {submitting ? (
                   <>
@@ -275,7 +293,7 @@ export default function QuoteCalculatorModal({ isOpen, onClose, initialData = {}
                   </>
                 ) : (
                   <>
-                    <span>Lock In Estimate & Send Proposal Request</span>
+                    <span>Submit Project Details for Discussion</span>
                     <ArrowUpRight className="w-4 h-4 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
                   </>
                 )}

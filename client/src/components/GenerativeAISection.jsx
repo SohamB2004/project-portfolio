@@ -240,7 +240,7 @@ True luxury does not whisper. It endures.`
               onMouseEnter={playHover}
               className="px-5 py-3 rounded-full text-xs sm:text-sm font-semibold bg-gradient-to-r from-blue-600 to-cyan-500 hover:from-blue-500 hover:to-cyan-400 text-white shadow-glow-sm hover:shadow-glow transition-all active:scale-95 flex items-center gap-2"
             >
-              <span>Estimate AI Project</span>
+              <span>Inquire About AI Solutions</span>
               <ArrowUpRight className="w-4 h-4" />
             </button>
           </div>

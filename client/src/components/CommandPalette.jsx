@@ -18,7 +18,7 @@ export default function CommandPalette({
   const actions = [
     {
       id: 'quote',
-      title: 'Calculate Project Quote & Timeline',
+      title: 'Request a Project Quote & Timeline',
       category: 'Estimates',
       icon: Calculator,
       action: () => {
