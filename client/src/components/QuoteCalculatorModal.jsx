@@ -64,7 +64,7 @@ export default function QuoteCalculatorModal({ isOpen, onClose, initialData = {}
     setSubmitting(true);
     try {
       // Direct email dispatch to business.randamiya@gmail.com
-      await fetch('https://formsubmit.co/ajax/business.randamiya@gmail.com', {
+      await fetch('https://formsubmit.co/ajax/business.shivera@gmail.com', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

@@ -46,7 +46,7 @@ export default function ContactSection() {
 
     try {
       // Direct email dispatch to business.randamiya@gmail.com
-      await fetch('https://formsubmit.co/ajax/business.randamiya@gmail.com', {
+      await fetch('https://formsubmit.co/ajax/business.shivera@gmail.com', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -133,14 +133,14 @@ export default function ContactSection() {
                 
                 {/* Email */}
                 <a
-                  href="mailto:business.randamiya@gmail.com"
+                  href="mailto:business.shivera@gmail.com"
                   onClick={playPop}
                   className="flex items-center gap-3.5 text-sm text-slate-300 hover:text-white transition-colors group"
                 >
                   <div className="w-10 h-10 rounded-xl bg-[#111827] border border-white/[0.08] flex items-center justify-center text-blue-400 group-hover:bg-blue-600 group-hover:text-white transition-all group-hover:scale-105">
                     <Mail className="w-4 h-4" />
                   </div>
-                  <span className="font-medium">business.randamiya@gmail.com</span>
+                  <span className="font-medium">business.shivera@gmail.com</span>
                 </a>
 
                 {/* Location */}
@@ -187,7 +187,7 @@ export default function ContactSection() {
                   </div>
                   <h3 className="text-2xl font-bold text-white">Message Received!</h3>
                   <p className="text-sm text-slate-300 max-w-md mx-auto leading-relaxed">
-                    Thank you for reaching out to Shivera. Your message has been sent directly to our inbox (<strong className="text-blue-400">business.randamiya@gmail.com</strong>) and our team will review and reply within 24 hours.
+                    Thank you for reaching out to Shivera. Your message has been sent directly to our inbox (<strong className="text-blue-400">business.shivera@gmail.com</strong>) and our team will review and reply within 24 hours.
                   </p>
                   <button
                     onClick={() => {

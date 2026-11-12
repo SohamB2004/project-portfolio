@@ -15,24 +15,11 @@ export default function Footer() {
           {/* Brand Info */}
           <div className="md:col-span-5 space-y-4">
             <div className="flex items-center gap-2.5">
-              <div className="w-8 h-8 rounded-xl bg-gradient-to-tr from-blue-600 to-cyan-400 p-[1.5px]">
-                <div className="w-full h-full bg-[#0B0F17] rounded-[10px] flex items-center justify-center">
-                  <svg
-                    className="w-4 h-4 text-blue-400"
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    stroke="currentColor"
-                    strokeWidth="2.5"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                  >
-                    <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5" />
-                  </svg>
-                </div>
-              </div>
-              <span className="text-lg font-bold text-white tracking-tight flex items-center gap-0.5">
-                Shivera<span className="text-blue-500 font-bold text-xl leading-none">.</span>
-              </span>
+              <img
+                src="/shivera-logo.png"
+                alt="Shivera - Technology • Media • Creative • AI"
+                className="h-10 sm:h-11 w-auto object-contain"
+              />
             </div>
 
             <p className="text-slate-400 text-xs leading-relaxed max-w-sm">

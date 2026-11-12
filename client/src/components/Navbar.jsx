@@ -46,24 +46,11 @@ export default function Navbar({
             onClick={playPop}
             className="flex items-center gap-2.5 group cursor-pointer"
           >
-            <div className="w-9 h-9 rounded-xl bg-gradient-to-tr from-blue-600 to-cyan-400 p-[1.5px] shadow-glow-sm transition-transform duration-300 group-hover:scale-105 group-hover:rotate-6">
-              <div className="w-full h-full bg-[#0B0F17] rounded-[10px] flex items-center justify-center">
-                <svg
-                  className="w-5 h-5 text-blue-400"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  strokeWidth="2.5"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                >
-                  <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5" />
-                </svg>
-              </div>
-            </div>
-            <span className="text-xl font-bold tracking-tight text-white flex items-center gap-0.5">
-              Shivera<span className="text-blue-500 font-bold text-2xl leading-none">.</span>
-            </span>
+            <img
+              src="/shivera-logo.png"
+              alt="Shivera - Technology • Media • Creative • AI"
+              className="h-9 sm:h-10 w-auto object-contain transition-transform duration-300 group-hover:scale-105"
+            />
           </a>
 
           {/* Desktop Nav Links */}
