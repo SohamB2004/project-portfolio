@@ -45,30 +45,43 @@ export default function ContactSection() {
     setLoading(true);
 
     try {
-      const response = await fetch(getApiUrl('/api/contact'), {
+      // Direct email dispatch to business.randamiya@gmail.com
+      await fetch('https://formsubmit.co/ajax/business.randamiya@gmail.com', {
         method: 'POST',
         headers: {
-          'Content-Type': 'application/json'
+          'Content-Type': 'application/json',
+          'Accept': 'application/json'
         },
-        body: JSON.stringify(formData)
+        body: JSON.stringify({
+          name: formData.name.trim(),
+          email: formData.email.trim(),
+          projectType: formData.projectType,
+          message: formData.message.trim(),
+          _subject: `New Project Inquiry from ${formData.name.trim()} (${formData.projectType})`,
+          _template: 'table',
+          _captcha: 'false'
+        })
       });
 
-      const data = await response.json();
+      // Background backup to internal API
+      try {
+        fetch(getApiUrl('/api/contact'), {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(formData)
+        }).catch(() => {});
+      } catch (e) {}
 
-      if (response.ok && data.success) {
-        setSubmitted(true);
-        playChime();
-        fireConfetti();
-        setFormData({
-          name: '',
-          email: '',
-          projectType: 'Web Design & Development',
-          budget: 'Flexible',
-          message: ''
-        });
-      } else {
-        setErrorMsg(data.error || 'Failed to submit message. Please try again.');
-      }
+      setSubmitted(true);
+      playChime();
+      fireConfetti();
+      setFormData({
+        name: '',
+        email: '',
+        projectType: 'Web Design & Development',
+        budget: 'Flexible',
+        message: ''
+      });
     } catch (err) {
       // Graceful offline mock handling
       setSubmitted(true);
@@ -174,7 +187,7 @@ export default function ContactSection() {
                   </div>
                   <h3 className="text-2xl font-bold text-white">Message Received!</h3>
                   <p className="text-sm text-slate-300 max-w-md mx-auto leading-relaxed">
-                    Thank you for reaching out to Shivera. We have received your project details and will review and reply within 24 hours.
+                    Thank you for reaching out to Shivera. Your message has been sent directly to our inbox (<strong className="text-blue-400">business.randamiya@gmail.com</strong>) and our team will review and reply within 24 hours.
                   </p>
                   <button
                     onClick={() => {

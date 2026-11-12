@@ -63,19 +63,43 @@ export default function QuoteCalculatorModal({ isOpen, onClose, initialData = {}
 
     setSubmitting(true);
     try {
-      await fetch(getApiUrl('/api/quote'), {
+      // Direct email dispatch to business.randamiya@gmail.com
+      await fetch('https://formsubmit.co/ajax/business.randamiya@gmail.com', {
         method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
+        headers: {
+          'Content-Type': 'application/json',
+          'Accept': 'application/json'
+        },
         body: JSON.stringify({
-          serviceType,
-          scope,
-          urgency,
-          name: name || 'Prospective Client',
-          email,
-          notes,
-          budget: 'To be discussed'
+          name: name.trim() || 'Prospective Client',
+          email: email.trim(),
+          serviceType: serviceType,
+          scope: scope,
+          urgency: urgency,
+          notes: notes.trim() || 'No additional notes provided.',
+          _subject: `New Project Quote Request for ${serviceType} (${scope} Scope)`,
+          _template: 'table',
+          _captcha: 'false'
         })
       });
+
+      // Background backup to internal API
+      try {
+        fetch(getApiUrl('/api/quote'), {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            serviceType,
+            scope,
+            urgency,
+            name: name || 'Prospective Client',
+            email,
+            notes,
+            budget: 'To be discussed'
+          })
+        }).catch(() => {});
+      } catch (err) {}
+
       setQuoteSubmitted(true);
       playChime();
       fireConfetti();
