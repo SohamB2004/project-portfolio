@@ -45,7 +45,7 @@ export default function ContactSection() {
     setLoading(true);
 
     try {
-      // Direct email dispatch to business.randamiya@gmail.com
+      // Direct email dispatch to business.shivera@gmail.com
       await fetch('https://formsubmit.co/ajax/business.shivera@gmail.com', {
         method: 'POST',
         headers: {
