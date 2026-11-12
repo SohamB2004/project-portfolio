@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Mail, MapPin, Youtube, Instagram, Linkedin, Send, ArrowUpRight, CheckCircle2, AlertCircle, Loader2, Sparkles } from 'lucide-react';
+import { Mail, MapPin, Send, ArrowUpRight, CheckCircle2, AlertCircle, Loader2, Sparkles } from 'lucide-react';
 import { playPop, playChime } from '../utils/audioFx';
 import { fireConfetti } from '../utils/confetti';
 import { getApiUrl } from '../utils/api';
@@ -138,53 +138,6 @@ export default function ContactSection() {
                   <span className="font-medium">Kolkata, India</span>
                 </div>
 
-              </div>
-
-              {/* Social Icons */}
-              <div className="pt-2 flex items-center gap-3">
-                <a
-                  href="https://youtube.com"
-                  target="_blank"
-                  rel="noreferrer"
-                  onClick={playPop}
-                  className="w-10 h-10 rounded-xl bg-[#111827] border border-white/[0.08] flex items-center justify-center text-slate-400 hover:text-red-500 hover:border-red-500/40 hover:bg-red-500/10 transition-all hover:scale-110 active:scale-90"
-                  aria-label="YouTube"
-                >
-                  <Youtube className="w-4 h-4" />
-                </a>
-
-                <a
-                  href="https://instagram.com"
-                  target="_blank"
-                  rel="noreferrer"
-                  onClick={playPop}
-                  className="w-10 h-10 rounded-xl bg-[#111827] border border-white/[0.08] flex items-center justify-center text-slate-400 hover:text-pink-400 hover:border-pink-500/40 hover:bg-pink-500/10 transition-all hover:scale-110 active:scale-90"
-                  aria-label="Instagram"
-                >
-                  <Instagram className="w-4 h-4" />
-                </a>
-
-                <a
-                  href="https://linkedin.com"
-                  target="_blank"
-                  rel="noreferrer"
-                  onClick={playPop}
-                  className="w-10 h-10 rounded-xl bg-[#111827] border border-white/[0.08] flex items-center justify-center text-slate-400 hover:text-blue-400 hover:border-blue-500/40 hover:bg-blue-500/10 transition-all hover:scale-110 active:scale-90"
-                  aria-label="LinkedIn"
-                >
-                  <Linkedin className="w-4 h-4" />
-                </a>
-
-                <a
-                  href="https://behance.net"
-                  target="_blank"
-                  rel="noreferrer"
-                  onClick={playPop}
-                  className="w-10 h-10 rounded-xl bg-[#111827] border border-white/[0.08] flex items-center justify-center text-slate-400 hover:text-blue-500 hover:border-blue-500/40 hover:bg-blue-500/10 transition-all font-bold text-xs hover:scale-110 active:scale-90"
-                  aria-label="Behance"
-                >
-                  Bē
-                </a>
               </div>
             </div>
 
