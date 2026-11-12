@@ -144,8 +144,8 @@ export default function Hero({ onOpenQuoteModal, onOpenProjectModal }) {
 
                     <div className="relative rounded-lg overflow-hidden bg-[#0D1424] border border-white/[0.06] aspect-[16/10]">
                       <img
-                        src="https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?q=80&w=1000&auto=format&fit=crop"
-                        alt="Explore The Himalayas Preview"
+                        src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=1000&auto=format&fit=crop"
+                        alt="The Marketing Concept Preview"
                         className="w-full h-full object-cover brightness-[0.88] contrast-[1.08] group-hover:scale-105 transition-transform duration-700"
                       />
 
@@ -153,22 +153,22 @@ export default function Hero({ onOpenQuoteModal, onOpenProjectModal }) {
                         <div className="flex items-center justify-between">
                           <div className="flex items-center gap-1.5">
                             <div className="w-2.5 h-2.5 rounded-full bg-blue-500" />
-                            <span className="text-[11px] font-bold tracking-wider uppercase text-white/90">Trekore</span>
+                            <span className="text-[11px] font-bold tracking-wider uppercase text-white/90">The Marketing Concept</span>
                           </div>
                           <div className="flex items-center gap-2">
-                            <span className="text-[10px] text-white/70">Trips</span>
-                            <span className="text-[10px] text-white/70">About</span>
-                            <span className="px-2 py-0.5 rounded-full bg-blue-600 text-[10px] text-white font-medium">Book Now</span>
+                            <span className="text-[10px] text-white/70">Agency</span>
+                            <span className="text-[10px] text-white/70">Work</span>
+                            <span className="px-2 py-0.5 rounded-full bg-emerald-500/90 text-[10px] text-white font-medium">Live Site</span>
                           </div>
                         </div>
 
                         <div>
                           <span className="text-[10px] font-semibold text-blue-400 tracking-wider uppercase">Featured Project</span>
                           <h3 className="text-lg sm:text-xl font-bold text-white leading-tight">
-                            Explore The Himalayas
+                            The Marketing Concept Germany
                           </h3>
                           <p className="text-[11px] text-slate-300 line-clamp-1 mt-0.5">
-                            Modern responsive travel website with booking & clean mountain UI.
+                            High-end corporate communications portal & conversion strategy.
                           </p>
                         </div>
                       </div>
@@ -193,15 +193,15 @@ export default function Hero({ onOpenQuoteModal, onOpenProjectModal }) {
                     </div>
 
                     <img
-                      src="https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?q=80&w=600&auto=format&fit=crop"
-                      alt="Mobile Preview"
+                      src="https://images.unsplash.com/photo-1507238691740-187a5b1d37b8?q=80&w=600&auto=format&fit=crop"
+                      alt="Hiroki Digital Mobile Preview"
                       className="w-full h-full object-cover brightness-[0.88]"
                     />
 
                     <div className="absolute inset-0 bg-gradient-to-t from-[#0B0F17] via-transparent to-transparent flex flex-col justify-end p-4">
-                      <span className="text-[10px] font-bold text-blue-400 uppercase">Mobile Experience</span>
-                      <h4 className="text-sm font-bold text-white">Trekore Mobile</h4>
-                      <p className="text-[10px] text-slate-300 mt-0.5">Touch-optimized booking flow & gestures.</p>
+                      <span className="text-[10px] font-bold text-blue-400 uppercase">Live Mobile Experience</span>
+                      <h4 className="text-sm font-bold text-white">Hiroki Digital Austria</h4>
+                      <p className="text-[10px] text-slate-300 mt-0.5">High-speed mobile lead generation & marketing.</p>
                     </div>
                   </div>
                 </div>

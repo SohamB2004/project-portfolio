@@ -4,20 +4,20 @@ import { Check, ChevronLeft, ChevronRight, ExternalLink, ArrowUpRight } from 'lu
 export default function ProjectDetailShowcase({ onOpenProjectModal }) {
   const showcaseProjects = [
     {
-      id: "travel-himalayas",
-      breadcrumb: "Travel Company Website",
-      title: "Travel Company Website",
-      tagline: "A modern, responsive travel website to showcase destinations, packages and bookings with a clean, immersive UI.",
+      id: "3d-jena-ring",
+      breadcrumb: "3D Animation • Jena Diamond Ring",
+      title: "Jena Diamond Ring 360° Animation",
+      tagline: "Photorealistic 360-degree commercial animation featuring ray-traced diamond caustics and physical precious metal shaders.",
       highlights: [
-        "UI/UX Design & Design Tokens",
-        "Responsive MERN Website Architecture",
-        "Booking & Inquiry System with Instant Email Alerts",
-        "SEO-Friendly & Fast (99/100 Lighthouse Performance)"
+        "Physically accurate light dispersion and diamond caustics",
+        "Studio 3-point softbox lighting with specular edge glints",
+        "Precision procedural gold and platinum metal shaders",
+        "Seamless 60fps 360-degree turntable commercial loop"
       ],
-      image: "https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?q=80&w=1200&auto=format&fit=crop",
-      screenOverlayTitle: "Explore The Himalayas",
-      link: null,
-      isMockup: true
+      image: "/animation/photo_2026-11-05_00-28-05.jpg",
+      screenOverlayTitle: "360° Luxury Product Reel",
+      link: "#animation",
+      isMockup: false
     },
     {
       id: "floow2",

@@ -15,7 +15,7 @@ export default function SpinBriefModal({ isOpen, onClose, onSelectIdea }) {
   ];
 
   const niches = [
-    'Himalayan Travel & Expeditions',
+    'Global Enterprise SaaS Platform',
     'B2B Sustainable Asset Sharing',
     'Luxury Real Estate & Architecture',
     'Artisan Coffee Roastery & Store',
