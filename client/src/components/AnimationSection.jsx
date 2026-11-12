@@ -309,7 +309,7 @@ export default function AnimationSection({ onOpenQuoteModal }) {
                 {/* Top-Right Badge: Category */}
                 <div className="absolute top-3 right-3 z-10">
                   <span className="px-2.5 py-1 rounded-full bg-blue-600/90 text-white text-[11px] font-semibold backdrop-blur-md shadow-md flex items-center gap-1">
-                    {project.isVideo ? <Play className="w-3 h-3 fill-white" /> : <Box className="w-3 h-3" />}
+                    {project.isVideo || project.youtubeId ? <Play className="w-3 h-3 fill-white" /> : <Box className="w-3 h-3" />}
                     {project.subCategory}
                   </span>
                 </div>
@@ -394,7 +394,15 @@ export default function AnimationSection({ onOpenQuoteModal }) {
               
               {/* Media Display */}
               <div className="relative rounded-2xl overflow-hidden aspect-[16/9] bg-black border border-white/[0.08]">
-                {selectedItem.isVideo ? (
+                {selectedItem.youtubeId ? (
+                  <iframe
+                    src={`https://www.youtube.com/embed/${selectedItem.youtubeId}?autoplay=1&rel=0&modestbranding=1`}
+                    title={selectedItem.title}
+                    className="w-full h-full border-0"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                    allowFullScreen
+                  />
+                ) : selectedItem.isVideo ? (
                   <video
                     src={selectedItem.videoUrl}
                     controls

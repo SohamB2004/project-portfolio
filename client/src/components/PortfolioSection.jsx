@@ -15,7 +15,9 @@ export default function PortfolioSection({
   const filteredProjects = activeCategory === 'All'
     ? projects
     : projects.filter(
-        (p) => p.category.toLowerCase() === activeCategory.toLowerCase()
+        (p) =>
+          p.category?.toLowerCase() === activeCategory.toLowerCase() ||
+          (Array.isArray(p.categories) && p.categories.some((c) => c.toLowerCase() === activeCategory.toLowerCase()))
       );
 
   return (

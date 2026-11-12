@@ -84,6 +84,31 @@ export const animationProjects = [
     ]
   },
   {
+    id: "3d-pran-krako-tvc",
+    title: "PRAN KRAKO Puff Corn – 3D Commercial Animation Reel",
+    category: "3D Animation",
+    categories: ["3D Animation", "Video Edits"],
+    subCategory: "Product Animation",
+    categoryTag: "Commercial Animation & TVC",
+    tags: ["Commercial Animation", "Snack TVC", "Character Motion", "VFX Compositing", "Broadcast Master"],
+    description: "High-energy commercial animation for PRAN Krako Puff Corn, fusing playful 3D character motion, snack burst simulations, and dynamic broadcast visual effects.",
+    longDescription: "A flagship commercial hybrid project highlighting Shivera's dual capability in animation and commercial video editing. Produced for PRAN Foods' Krako Puff Corn snack line, this TV commercial combines vibrant animated characters and snack explosions with razor-sharp editorial timing, sound effects synchronization, color grading, and broadcast delivery formatting.",
+    client: "PRAN Foods Ltd – Krako",
+    year: "2024",
+    isVideo: true,
+    youtubeId: "HwkJ_lJEkyw",
+    youtubeUrl: "https://youtu.be/HwkJ_lJEkyw",
+    image: "/video/pran-krako-tvc.jpg",
+    featured: true,
+    engine: "Commercial Animation & VFX Compositing",
+    highlights: [
+      "Dynamic fusion of character animation, 3D product bursts, and live-action pacing",
+      "Broadcast-standard television commercial editorial cut and tempo",
+      "Punchy commercial audio mastering with crunch foley and upbeat musical rhythm",
+      "Vibrant high-saturation color grading optimized for consumer FMCG appeal"
+    ]
+  },
+  {
     id: "3d-jena-ring",
     title: "Jena Diamond Ring – 360° Luxury Product Animation",
     category: "3D Animation",
@@ -470,6 +495,28 @@ export const fallbackProjects = [
   },
 
   // --- REAL YOUTUBE VIDEO EDITING PROJECTS FROM USER ---
+  {
+    id: "video-pran-krako-tvc",
+    title: "PRAN KRAKO Puff Corn TVC – Commercial Animation & Video Edit",
+    category: "Video Edits",
+    categories: ["Video Edits", "3D Animation"],
+    categoryTag: "Commercial TVC & Video Editing",
+    tags: ["Commercial TVC", "Character Animation", "Broadcast Video Edit", "Sound Design", "VFX Compositing"],
+    description: "High-energy television commercial (TVC) for PRAN Krako Puff Corn, fusing playful 3D/character animation, kinetic pacing, product bursts, and broadcast-ready sound design.",
+    longDescription: "A flagship commercial hybrid project highlighting Shivera's dual capability in animation and commercial video editing. Produced for PRAN Foods' Krako Puff Corn snack line, this TV commercial combines vibrant animated characters and snack explosions with razor-sharp editorial timing, sound effects synchronization, color grading, and broadcast delivery formatting.",
+    client: "PRAN Foods Ltd – Krako",
+    year: "2024",
+    youtubeId: "HwkJ_lJEkyw",
+    youtubeUrl: "https://youtu.be/HwkJ_lJEkyw",
+    image: "/video/pran-krako-tvc.jpg",
+    featured: true,
+    highlights: [
+      "Dynamic fusion of character animation, 3D product bursts, and live-action pacing",
+      "Broadcast-standard television commercial editorial cut and tempo",
+      "Punchy commercial audio mastering with crunch foley and upbeat musical rhythm",
+      "Vibrant high-saturation color grading optimized for consumer FMCG appeal"
+    ]
+  },
   {
     id: "video-travel-cinematic",
     title: "Cinematic Travel & Expedition Showcase",

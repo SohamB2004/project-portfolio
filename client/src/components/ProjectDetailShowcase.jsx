@@ -17,6 +17,24 @@ export default function ProjectDetailShowcase({ onOpenProjectModal }) {
       image: "/animation/photo_2026-11-05_00-28-05.jpg",
       screenOverlayTitle: "360° Luxury Product Reel",
       link: "#animation",
+      linkLabel: "View 3D Animation Studio",
+      isMockup: false
+    },
+    {
+      id: "pran-krako-tvc",
+      breadcrumb: "Animation & Video Edit • PRAN Krako TVC",
+      title: "PRAN Krako TVC Commercial",
+      tagline: "High-energy commercial TVC combining vibrant 3D character motion, snack burst simulations, kinetic pacing, and broadcast post-production.",
+      highlights: [
+        "Commercial Character Motion & 3D Snack Bursts",
+        "Broadcast Television Editorial Cut & BPM Tempo Sync",
+        "Punchy Commercial Audio Mastering & Crunch Foley",
+        "High-Saturation FMCG Color Grading & VFX Compositing"
+      ],
+      image: "/video/pran-krako-tvc.jpg",
+      screenOverlayTitle: "PRAN Krako Commercial TVC",
+      link: "https://youtu.be/HwkJ_lJEkyw",
+      linkLabel: "Watch Commercial on YouTube",
       isMockup: false
     },
     {
@@ -157,7 +175,7 @@ export default function ProjectDetailShowcase({ onOpenProjectModal }) {
                     rel="noopener noreferrer"
                     className="inline-flex items-center gap-2 px-6 py-2.5 rounded-full text-xs sm:text-sm font-semibold text-white bg-blue-600 hover:bg-blue-500 shadow-glow-sm transition-all"
                   >
-                    <span>Visit Live Website</span>
+                    <span>{active.linkLabel || (active.link.includes('youtu') ? 'Watch Commercial on YouTube' : 'Visit Live Website')}</span>
                     <ExternalLink className="w-3.5 h-3.5" />
                   </a>
                 ) : (
