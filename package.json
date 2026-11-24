@@ -8,7 +8,9 @@
     "dev:server": "cd server && node src/index.js",
     "dev:client": "cd client && npm run dev",
     "start": "cd server && node src/index.js",
-    "build": "cd client && npm install && npm run build"
+    "build": "cd client && npm install && npm run build",
+    "hunter": "node agent/client-hunter.cjs",
+    "agent": "node agent/client-hunter.cjs"
   },
   "dependencies": {
     "cors": "^2.8.5",
