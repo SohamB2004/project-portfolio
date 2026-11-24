@@ -2,12 +2,35 @@
 
 /**
  * SHIVERA CLIENT ACQUISITION AGENT
- * Automated Lead Scanner, Proposal Generator & Cold Outreach System
+ * Automated Lead Scanner, Proposal Generator & Direct Email Dispatcher
  * Built specifically for Shivera (Technology • Media • Creative • AI)
  */
 
+require('dotenv').config();
 const readline = require('readline');
 const https = require('https');
+const fs = require('fs');
+const path = require('path');
+const { spawn } = require('child_process');
+
+let nodemailer;
+try {
+  nodemailer = require('nodemailer');
+} catch (e) {
+  nodemailer = null;
+}
+
+// Copy text directly to Windows Clipboard (zero-effort pasting for the user)
+function copyToClipboard(text) {
+  try {
+    const proc = spawn('clip');
+    proc.stdin.write(text);
+    proc.stdin.end();
+    return true;
+  } catch (err) {
+    return false;
+  }
+}
 
 // Knowledge base of Shivera's real proven portfolio assets
 const SHIVERA_PORTFOLIO = {
@@ -129,28 +152,23 @@ function generateProposal(jobTitle, jobDescription, clientName = 'there') {
     const domainObj = SHIVERA_PORTFOLIO.domains[d];
     if (domainObj) {
       domainObj.proofs.forEach(p => {
-        proofLines.push(`• **${p.name}** – ${p.desc}${p.link ? ` (Live: ${p.link})` : ''}`);
+        proofLines.push(`• ${p.name} – ${p.desc}${p.link ? ` (Live: ${p.link})` : ''}`);
       });
     }
   });
 
-  return `
-================================================================================
-                    🔥 SHIVERA WINNING PROPOSAL DRAFT 🔥
-================================================================================
-
-Hi ${clientName},
+  const proposalText = `Hi ${clientName},
 
 I reviewed your requirements for "${jobTitle.trim()}" and can help you execute this cleanly without the usual agency overhead.
 
-At Shivera (${SHIVERA_PORTFOLIO.website}), we specialize in high-performance web development, 3D CGI animation, and commercial video production. Here are our direct reference projects that prove we've solved this exact challenge:
+At Shivera (${SHIVERA_PORTFOLIO.website}), we specialize in high-performance web development, 3D CGI animation, and commercial video production. Here are our direct reference projects proving our track record:
 
 ${proofLines.slice(0, 3).join('\n')}
 
 ### How We Will Approach Your Project:
-1. **Discovery & Architecture:** Align on milestones, wireframes, and design specs within the first 48 hours.
-2. **Rapid Iteration & Staging:** Weekly staging milestones with transparent progress updates so you retain full creative and technical control.
-3. **Production Deployment & Polish:** End-to-end testing, responsive design, 60fps performance optimization, and final handover.
+1. Discovery & Architecture: Align on milestones, wireframes, and design specs within the first 48 hours.
+2. Rapid Iteration & Staging: Weekly staging milestones with transparent progress updates so you retain full creative and technical control.
+3. Production Deployment & Polish: End-to-end testing, responsive design, 60fps performance optimization, and final handover.
 
 ### Questions for You:
 • What is your target completion deadline?
@@ -161,7 +179,17 @@ Let's connect for a brief 10-minute scoping chat, or feel free to message me bac
 Best regards,
 Shivera Team
 Portfolio: ${SHIVERA_PORTFOLIO.website}
-Contact: ${SHIVERA_PORTFOLIO.email}
+Contact: ${SHIVERA_PORTFOLIO.email}`;
+
+  copyToClipboard(proposalText);
+
+  return `
+================================================================================
+                    🔥 SHIVERA WINNING PROPOSAL DRAFT 🔥
+          (📋 Automatically copied to your Windows Clipboard!)
+================================================================================
+
+${proposalText}
 
 ================================================================================
 `;
@@ -169,19 +197,11 @@ Contact: ${SHIVERA_PORTFOLIO.email}
 
 // Generate startup cold email outreach
 function generateStartupColdEmail(startupName, industry = 'tech') {
-  return `
-================================================================================
-                🚀 COLD OUTREACH SEQUENCE FOR: ${startupName.toUpperCase()} 🚀
-================================================================================
-
---- EMAIL 1: The High-Value Hook ---
-Subject: Quick idea for ${startupName} + 3D / AI launch concept
-
-Hi [Founder Name],
+  const emailBody = `Hi [Founder Name],
 
 Saw what you're building with ${startupName} — congratulations on the momentum.
 
-Most emerging companies in your space lose valuable weeks trying to manage three disconnected vendors: a dev shop, a 3D animator, and a video editor. At Shivera (https://shivera.com), we deliver the entire launch stack in-house:
+Most emerging companies in your space lose valuable weeks trying to coordinate three disconnected vendors: a dev shop, a 3D animator, and a video editor. At Shivera (https://shivera.com), we deliver the entire launch stack in-house:
 
 1. High-Performance Web & AI Platforms (like our work on Floow2 & NeuroDocs)
 2. 3D Product & Process CGI (like our photorealistic CAD & 360° product models)
@@ -192,26 +212,77 @@ I took a look at ${startupName} and put together 2 quick ideas on how an interac
 Open to a brief 10-minute brainstorming chat this Thursday?
 
 Best,
-[Your Name] | Shivera Studio
+Shivera Studio
 business.shivera@gmail.com
+https://shivera.com`;
 
+  copyToClipboard(emailBody);
 
---- EMAIL 2: The 48-Hour Follow-Up ---
-Subject: Re: Quick idea for ${startupName}
+  return {
+    subject: `Quick idea for ${startupName} + 3D / AI launch concept`,
+    body: emailBody
+  };
+}
 
-Hi [Founder Name],
+// Direct Email Dispatch via Nodemailer (Secure SMTP)
+async function sendEmailDirectly(toEmail, subject, textBody) {
+  const user = process.env.GMAIL_USER || process.env.EMAIL_USER;
+  const pass = process.env.GMAIL_APP_PASSWORD || process.env.EMAIL_PASS;
 
-Brief follow-up on my note below. I know you're busy growing ${startupName}.
+  if (!user || !pass) {
+    console.log(`
+⚠️ Direct Email Sending requires your Gmail App Password.
+To enable 1-click dispatch:
+1. Open or create the file .env in your portfolio folder.
+2. Add:
+   GMAIL_USER=business.shivera@gmail.com
+   GMAIL_APP_PASSWORD=your_16_character_app_password
+(See .env.example for instructions).
+Your proposal has already been copied to your clipboard so you can paste it manually!
+`);
+    return false;
+  }
 
-If you'd like, I can send over a 2-page Technical Feasibility & 3D Visual Concept roadmap free of charge so you can review it asynchronously.
+  if (!nodemailer) {
+    console.log('⚠️ nodemailer is not installed. Run: npm install nodemailer');
+    return false;
+  }
 
-Let me know if that would be helpful!
+  try {
+    const transporter = nodemailer.createTransport({
+      service: 'gmail',
+      auth: { user, pass }
+    });
 
-Best,
-[Your Name] | Shivera
-business.shivera@gmail.com
-================================================================================
-`;
+    console.log(`\n📤 Dispatching email from ${user} to ${toEmail}...`);
+    const info = await transporter.sendMail({
+      from: `"Shivera Studio" <${user}>`,
+      to: toEmail,
+      subject: subject,
+      text: textBody
+    });
+
+    console.log(`✅ Email delivered successfully! Message ID: ${info.messageId}`);
+
+    // Log to outreach_logs.json
+    try {
+      const logPath = path.resolve(__dirname, '../outreach_logs.json');
+      const existing = fs.existsSync(logPath) ? JSON.parse(fs.readFileSync(logPath, 'utf8')) : [];
+      existing.push({
+        to: toEmail,
+        subject: subject,
+        sentAt: new Date().toISOString(),
+        messageId: info.messageId
+      });
+      fs.writeFileSync(logPath, JSON.stringify(existing, null, 2), 'utf8');
+      console.log(`📝 Logged to outreach_logs.json`);
+    } catch (e) {}
+
+    return true;
+  } catch (err) {
+    console.error(`❌ Failed to send email: ${err.message}`);
+    return false;
+  }
 }
 
 // Fetch live jobs from RemoteOK and filter for relevant roles
@@ -224,7 +295,6 @@ async function scanLiveJobs() {
       return;
     }
 
-    // Filter relevant tech/creative jobs
     const keywords = ['react', 'node', 'full stack', 'frontend', 'web', 'wordpress', 'video', 'design', '3d', 'ai', 'python'];
     const matchedJobs = data.slice(1).filter(job => {
       const text = ((job.position || '') + ' ' + (job.tags || []).join(' ') + ' ' + (job.description || '')).toLowerCase();
@@ -232,7 +302,7 @@ async function scanLiveJobs() {
     }).slice(0, 8);
 
     if (matchedJobs.length === 0) {
-      console.log('No direct matches in the latest 100 posts. Displaying recent contract roles.');
+      console.log('No direct matches in the latest posts.');
       return;
     }
 
@@ -259,15 +329,15 @@ function startCli() {
   console.log(`
 ╔═══════════════════════════════════════════════════════════════════╗
 ║                   SHIVERA CLIENT ACQUISITION AGENT               ║
-║             AI-Powered Lead Generation & Proposal Engine          ║
+║             AI-Powered Lead Generation & Direct Dispatch          ║
 ╚═══════════════════════════════════════════════════════════════════╝
 `);
 
   function showMenu() {
     console.log('Select an action:');
     console.log('1. 📡 Scan Live Remote Freelance/Startup Opportunities');
-    console.log('2. 📝 Generate Proposal for ANY Job Post (Upwork, Contra, LinkedIn)');
-    console.log('3. 🚀 Generate Cold Outreach Pitch for a Startup / Brand');
+    console.log('2. 📝 Generate Proposal for ANY Job (Upwork, Contra, LinkedIn) [Auto-Copies to Clipboard]');
+    console.log('3. 🚀 Draft & Send Cold Email Pitch to a Startup / Founder');
     console.log('4. 📅 View the 30-Minute Daily Client Acquisition Playbook');
     console.log('5. ❌ Exit\n');
 
@@ -290,18 +360,34 @@ function startCli() {
         showMenu();
       } else if (trimmed === '2') {
         rl.question('\nEnter Job Title: ', (title) => {
-          rl.question('Paste Job Description (or press Enter when done): ', (desc) => {
+          rl.question('Paste Job Description (press Enter when done): ', (desc) => {
             rl.question('Client / Company Name (optional): ', (name) => {
               console.log(generateProposal(title, desc || title, name || 'there'));
+              console.log('👉 Tip: Open your job page on Upwork/Contra/LinkedIn and press Ctrl+V to paste your proposal instantly!\n');
               showMenu();
             });
           });
         });
       } else if (trimmed === '3') {
         rl.question('\nEnter Startup / Company Name: ', (name) => {
-          rl.question('Industry / Product Type (e.g., CleanTech, SaaS, D2C): ', (ind) => {
-            console.log(generateStartupColdEmail(name, ind));
-            showMenu();
+          rl.question('Industry / Product Type (e.g. CleanTech, SaaS, D2C): ', (ind) => {
+            const pitch = generateStartupColdEmail(name, ind);
+            console.log(`
+================================================================================
+Subject: ${pitch.subject}
+(📋 Pitch copied to Clipboard!)
+================================================================================
+${pitch.body}
+================================================================================
+`);
+            rl.question('Send this email directly now? Enter recipient email (or press Enter to skip): ', async (toEmail) => {
+              if (toEmail && toEmail.includes('@')) {
+                await sendEmailDirectly(toEmail.trim(), pitch.subject, pitch.body);
+              } else {
+                console.log('Skipped direct sending. Pitch remains copied on your clipboard.');
+              }
+              showMenu();
+            });
           });
         });
       } else if (trimmed === '4') {
@@ -316,22 +402,20 @@ If you have 0 marketing experience, follow this exact routine every weekday:
   • Go to Upwork.com or Contra.com.
   • Search: "React MERN", "WordPress", "3D Animation", or "Video Editing".
   • Filter by: "Posted in last 24 hours" and "Verified Payment".
-  • Paste the job post into Option 2 of this agent to get an instant customized proposal.
-  • Send proposal immediately.
+  • Paste the job post into Option 2 of this agent (it auto-copies to clipboard).
+  • Paste directly into Upwork/Contra (Ctrl+V) and hit Submit.
 
-⏰ MINUTES 16–25: Cold Outreach to 2 Funded Startups
+⏰ MINUTES 16–25: Cold Outreach to 2 Startups
   • Go to Wellfound.com or TechCrunch or Twitter/X.
   • Look for startups that just launched or raised Seed funding.
-  • Run Option 3 of this agent to generate a tailored email and send it to their founder or contact email.
+  • Run Option 3 of this agent to draft and send an email directly to their founder.
 
 ⏰ MINUTES 26–30: Follow-Ups
-  • Reply to any inquiries on your website or past messages.
-  • Direct them to your Shivera portfolio: https://shivera.com
+  • Check inquiries at business.shivera@gmail.com and reply within 2 hours.
 
 📊 EXPECTED RESULTS:
   • 3 proposals/day = 15/week = 60/month.
-  • In freelancing, a 5-10% reply rate is standard.
-  • That yields 3 to 6 client interviews per month, easily leading to 1-3 funded projects.
+  • Yields 3 to 6 client interviews per month, easily closing 1-3 funded projects.
 ================================================================================
 `);
         showMenu();
